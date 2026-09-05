@@ -1,0 +1,793 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Exceedinggrace Multiventures | Mobile Toilet & Equipment Rental in Lagos</title>
+<meta name="description" content="Exceedinggrace Multiventures supplies and services mobile toilets and rental equipment for construction sites, events and public gatherings across Lagos. Request a quote today.">
+<meta property="og:title" content="Exceedinggrace Multiventures | Mobile Toilet & Equipment Rental in Lagos">
+<meta property="og:description" content="Clean, well-maintained mobile toilets delivered, set up and serviced anywhere in Lagos — for construction sites, events and public gatherings.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#132A3A;
+    --ink-soft:#3E5464;
+    --bg:#F5F5F1;
+    --surface:#FFFFFF;
+    --line:#DDDACF;
+    --accent:#E19A34;
+    --accent-deep:#B9761C;
+    --clean:#3E7D5B;
+    --clean-soft:#E7F0EA;
+    --amber-soft:#FBEEDB;
+    --max:1180px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    *{animation-duration:0.001ms !important; transition-duration:0.001ms !important;}
+  }
+
+  /* ---------- Motion system ---------- */
+  @keyframes fadeUp{
+    from{opacity:0; transform:translateY(22px);}
+    to{opacity:1; transform:translateY(0);}
+  }
+  @keyframes wordUp{
+    from{transform:translateY(112%);}
+    to{transform:translateY(0);}
+  }
+  @keyframes ringPulse{
+    0%{box-shadow:0 0 0 0 rgba(62,125,91,0.55);}
+    70%{box-shadow:0 0 0 14px rgba(62,125,91,0);}
+    100%{box-shadow:0 0 0 0 rgba(62,125,91,0);}
+  }
+  @keyframes spinWheel{ to{ transform:rotate(360deg); } }
+  @keyframes roadDash{ to{ stroke-dashoffset:-40; } }
+  @keyframes vanBob{
+    0%,100%{ transform:translateY(0); }
+    50%{ transform:translateY(-3px); }
+  }
+  @keyframes drift{
+    0%,100%{ transform:translateY(0); }
+    50%{ transform:translateY(-8px); }
+  }
+
+  .word-mask{display:inline-block; overflow:hidden; vertical-align:top; padding-bottom:0.08em; margin-bottom:-0.08em;}
+  .word-inner{display:inline-block; will-change:transform;}
+  .anim-run .word-inner{animation:wordUp .72s cubic-bezier(.22,1,.36,1) both;}
+
+  .fade-seq{opacity:0; animation:fadeUp .7s cubic-bezier(.22,1,.36,1) both;}
+
+  [data-reveal]{opacity:0; transform:translateY(24px); transition:opacity .6s cubic-bezier(.22,1,.36,1), transform .6s cubic-bezier(.22,1,.36,1);}
+  [data-reveal].in-view{opacity:1; transform:translateY(0);}
+  .reveal-group.in-view .service-card,
+  .reveal-group.in-view .trust-item,
+  .reveal-group.in-view .why-row,
+  .reveal-group.in-view .process-step,
+  .reveal-group.in-view .faq-item{opacity:1; transform:translateY(0);}
+  .reveal-group .service-card,
+  .reveal-group .trust-item,
+  .reveal-group .why-row,
+  .reveal-group .process-step,
+  .reveal-group .faq-item{opacity:0; transform:translateY(20px); transition:opacity .6s cubic-bezier(.22,1,.36,1), transform .6s cubic-bezier(.22,1,.36,1);}
+  .reveal-group .service-card:nth-child(1){transition-delay:.05s;}
+  .reveal-group .service-card:nth-child(2){transition-delay:.16s;}
+  .reveal-group .service-card:nth-child(3){transition-delay:.27s;}
+  .reveal-group .trust-item:nth-child(1){transition-delay:0s;}
+  .reveal-group .trust-item:nth-child(2){transition-delay:.09s;}
+  .reveal-group .trust-item:nth-child(3){transition-delay:.18s;}
+  .reveal-group .trust-item:nth-child(4){transition-delay:.27s;}
+  .reveal-group .why-row:nth-child(1){transition-delay:.04s;}
+  .reveal-group .why-row:nth-child(2){transition-delay:.14s;}
+  .reveal-group .why-row:nth-child(3){transition-delay:.24s;}
+  .reveal-group .why-row:nth-child(4){transition-delay:.34s;}
+  .reveal-group .process-step:nth-child(1){transition-delay:.04s;}
+  .reveal-group .process-step:nth-child(2){transition-delay:.14s;}
+  .reveal-group .process-step:nth-child(3){transition-delay:.24s;}
+  .reveal-group .process-step:nth-child(4){transition-delay:.34s;}
+  .reveal-group .faq-item:nth-child(1){transition-delay:.04s;}
+  .reveal-group .faq-item:nth-child(2){transition-delay:.11s;}
+  .reveal-group .faq-item:nth-child(3){transition-delay:.18s;}
+  .reveal-group .faq-item:nth-child(4){transition-delay:.25s;}
+
+  .wheel{transform-box:fill-box; transform-origin:center; animation:spinWheel 1.4s linear infinite;}
+  @keyframes dotPulse{
+    0%,100%{ transform:scale(1); opacity:1; }
+    50%{ transform:scale(1.5); opacity:0.55; }
+  }
+  .map-dot{transform-box:fill-box; transform-origin:center; animation:dotPulse 2.6s ease-in-out infinite;}
+  .road-dash{animation:roadDash 0.9s linear infinite;}
+  .van-group{animation:vanBob 2.6s ease-in-out infinite;}
+  .drift-slow{animation:drift 6s ease-in-out infinite;}
+
+  @media (prefers-reduced-motion: reduce){
+    .word-inner{animation:none !important; transform:none !important;}
+    .fade-seq{animation:none !important; opacity:1 !important;}
+    [data-reveal]{opacity:1 !important; transform:none !important;}
+    .reveal-group .service-card, .reveal-group .trust-item, .reveal-group .why-row,
+    .reveal-group .process-step, .reveal-group .faq-item{opacity:1 !important; transform:none !important;}
+    .wheel, .road-dash, .van-group, .drift-slow{animation:none !important;}
+  }
+  body{
+    margin:0;
+    font-family:'Public Sans', sans-serif;
+    color:var(--ink);
+    background:var(--bg);
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  h1,h2,h3,h4{
+    font-family:'Archivo', sans-serif;
+    color:var(--ink);
+    margin:0;
+    line-height:1.12;
+    letter-spacing:-0.01em;
+  }
+  p{margin:0;}
+  a{color:inherit; text-decoration:none;}
+  img{max-width:100%; display:block;}
+  .wrap{max-width:var(--max); margin:0 auto; padding:0 28px;}
+  section{padding:96px 0;}
+  @media (max-width:700px){ section{padding:64px 0;} }
+
+  /* ---------- Buttons ---------- */
+  .btn{
+    display:inline-flex; align-items:center; gap:10px;
+    padding:15px 28px;
+    font-family:'Public Sans', sans-serif;
+    font-weight:600;
+    font-size:15.5px;
+    border-radius:3px;
+    cursor:pointer;
+    border:2px solid transparent;
+    transition:transform 0.15s ease, background 0.15s ease, border-color .15s ease;
+    white-space:nowrap;
+  }
+  .btn:hover{transform:translateY(-2px);}
+  .btn-primary{background:var(--accent); color:var(--ink);}
+  .btn-primary:hover{background:var(--accent-deep); color:#fff;}
+  .btn-outline{background:transparent; border-color:var(--ink); color:var(--ink);}
+  .btn-outline:hover{background:var(--ink); color:#fff;}
+  .btn-ghost-light{background:transparent; border-color:rgba(255,255,255,0.55); color:#fff;}
+  .btn-ghost-light:hover{background:#fff; color:var(--ink); border-color:#fff;}
+
+  /* ---------- Nav ---------- */
+  header{
+    position:sticky; top:0; z-index:50;
+    background:rgba(245,245,241,0.92);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav{display:flex; align-items:center; justify-content:space-between; padding:18px 28px; max-width:var(--max); margin:0 auto;}
+  .logo{font-family:'Archivo', sans-serif; font-weight:800; font-size:20px; display:flex; align-items:center; gap:10px;}
+  .logo-mark{width:34px; height:34px; flex-shrink:0;}
+  .logo span{color:var(--accent-deep);}
+  .nav-links{display:flex; gap:34px; align-items:center;}
+  .nav-links a{font-size:15px; font-weight:500; color:var(--ink-soft);}
+  .nav-links a:hover{color:var(--ink);}
+  .nav-cta{display:flex; align-items:center; gap:14px;}
+  .nav-phone{font-weight:600; font-size:15px; display:flex; align-items:center; gap:8px;}
+  .nav-toggle{display:none; background:none; border:none; cursor:pointer;}
+  @media (max-width:860px){
+    .nav-links{display:none;}
+    .nav-toggle{display:block;}
+    .nav-phone span.label{display:none;}
+  }
+
+  /* ---------- Hero ---------- */
+  .hero{
+    padding:88px 0 60px;
+    background:linear-gradient(180deg, #EFEEE7 0%, var(--bg) 100%);
+    position:relative;
+  }
+  .hero .wrap{display:grid; grid-template-columns:1.05fr 0.95fr; gap:56px; align-items:center;}
+  @media (max-width:940px){ .hero .wrap{grid-template-columns:1fr; gap:44px;} }
+  .hero-tag{
+    display:inline-block;
+    font-size:14px; font-weight:600; color:var(--accent-deep);
+    background:var(--amber-soft);
+    padding:7px 14px; border-radius:3px;
+    margin-bottom:22px;
+  }
+  .hero h1{font-size:clamp(32px, 4.4vw, 50px); font-weight:800; max-width:16ch;}
+  .hero p.lede{margin-top:22px; font-size:18px; color:var(--ink-soft); max-width:46ch;}
+  .hero-actions{margin-top:34px; display:flex; gap:16px; flex-wrap:wrap;}
+  .hero-meta{margin-top:34px; display:flex; gap:28px; flex-wrap:wrap;}
+  .hero-meta div{font-size:14px; color:var(--ink-soft); display:flex; gap:8px; align-items:center;}
+  .hero-visual{position:relative;}
+  .hero-card{
+    background:var(--surface);
+    border:1px solid var(--line);
+    border-radius:4px;
+    padding:8px;
+  }
+
+  /* ---------- Trust strip ---------- */
+  .trust{
+    background:var(--ink);
+    color:#fff;
+    padding:34px 0;
+  }
+  .trust .wrap{display:flex; flex-wrap:wrap; gap:36px; justify-content:space-between;}
+  .trust-item{display:flex; gap:14px; align-items:flex-start; flex:1 1 220px;}
+  .trust-item svg{flex-shrink:0; margin-top:2px;}
+  .trust-item h4{color:#fff; font-size:15.5px; font-weight:700;}
+  .trust-item p{font-size:13.5px; color:#C6D0D6; margin-top:4px;}
+
+  /* ---------- Section heading ---------- */
+  .sec-head{max-width:640px; margin-bottom:52px;}
+  .sec-kicker{color:var(--accent-deep); font-weight:600; font-size:14.5px; margin-bottom:12px; display:block;}
+  .sec-head h2{font-size:clamp(26px,3.2vw,36px); font-weight:700;}
+  .sec-head p{margin-top:14px; color:var(--ink-soft); font-size:16.5px;}
+
+  /* ---------- Services ---------- */
+  .services-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:2px; background:var(--line); border:1px solid var(--line);}
+  @media (max-width:900px){ .services-grid{grid-template-columns:1fr;} }
+  .service-card{background:var(--surface); padding:36px 32px; border-top:3px solid var(--accent);}
+  .service-card:nth-child(2){border-top-color:var(--clean);}
+  .service-card:nth-child(3){border-top-color:var(--ink);}
+  .service-icon{width:46px; height:46px; margin-bottom:22px;}
+  .service-card h3{font-size:19px; font-weight:700; margin-bottom:10px;}
+  .service-card p{color:var(--ink-soft); font-size:15px;}
+  .service-card ul{margin:16px 0 0; padding:0; list-style:none;}
+  .service-card li{font-size:14.5px; color:var(--ink-soft); padding-left:20px; position:relative; margin-bottom:8px;}
+  .service-card li::before{content:""; position:absolute; left:0; top:8px; width:8px; height:2px; background:var(--accent-deep);}
+
+  /* ---------- Why choose (about) ---------- */
+  .why{background:var(--surface); border-top:1px solid var(--line); border-bottom:1px solid var(--line);}
+  .why .wrap{display:grid; grid-template-columns:0.9fr 1.1fr; gap:64px; align-items:start;}
+  @media (max-width:940px){ .why .wrap{grid-template-columns:1fr;} }
+  .why-list{display:grid; gap:28px;}
+  .why-row{display:flex; gap:18px;}
+  .why-num{
+    font-family:'Archivo', sans-serif; font-weight:800; font-size:15px;
+    width:34px; height:34px; border:1.5px solid var(--ink); border-radius:50%;
+    display:flex; align-items:center; justify-content:center; flex-shrink:0;
+  }
+  .why-row h4{font-size:16.5px; font-weight:700; margin-bottom:6px;}
+  .why-row p{color:var(--ink-soft); font-size:15px;}
+
+  /* ---------- Process ---------- */
+  .process{background:var(--bg);}
+  .process-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:0; position:relative;}
+  @media (max-width:900px){ .process-grid{grid-template-columns:1fr 1fr;} }
+  @media (max-width:560px){ .process-grid{grid-template-columns:1fr;} }
+  .process-step{padding:0 24px 0 0; position:relative;}
+  .process-step:not(:last-child)::after{
+    content:""; position:absolute; top:22px; right:0; width:100%; height:1px; background:var(--line);
+  }
+  @media (max-width:900px){ .process-step:not(:last-child)::after{display:none;} }
+  .step-num{
+    font-family:'Archivo',sans-serif; font-weight:800; font-size:20px;
+    color:var(--accent-deep); margin-bottom:14px; position:relative; z-index:1; background:var(--bg); display:inline-block; padding-right:10px;
+  }
+  .process-step h4{font-size:16px; font-weight:700; margin-bottom:8px;}
+  .process-step p{color:var(--ink-soft); font-size:14.5px;}
+
+  /* ---------- Coverage ---------- */
+  .coverage{background:var(--ink); color:#fff;}
+  .coverage .wrap{display:grid; grid-template-columns:1fr 1fr; gap:56px; align-items:center;}
+  @media (max-width:900px){ .coverage .wrap{grid-template-columns:1fr;} }
+  .coverage h2{color:#fff; font-size:clamp(26px,3vw,34px); font-weight:700;}
+  .coverage p{color:#C6D0D6; margin-top:16px; font-size:16px; max-width:48ch;}
+  .coverage-tags{display:flex; flex-wrap:wrap; gap:10px; margin-top:26px;}
+  .coverage-tags span{
+    border:1px solid rgba(255,255,255,0.28); border-radius:3px; padding:8px 14px; font-size:13.5px; color:#E7ECEF;
+  }
+
+  /* ---------- FAQ ---------- */
+  .faq-list{border-top:1px solid var(--line);}
+  .faq-item{border-bottom:1px solid var(--line);}
+  .faq-q{
+    width:100%; text-align:left; background:none; border:none; cursor:pointer;
+    padding:22px 0; display:flex; justify-content:space-between; align-items:center;
+    font-family:'Archivo', sans-serif; font-weight:700; font-size:17px; color:var(--ink);
+  }
+  .faq-q .plus{font-size:22px; font-weight:400; color:var(--accent-deep); transition:transform .2s ease; flex-shrink:0; margin-left:20px;}
+  .faq-item.open .plus{transform:rotate(45deg);}
+  .faq-a{max-height:0; overflow:hidden; transition:max-height .25s ease;}
+  .faq-a p{padding-bottom:22px; color:var(--ink-soft); font-size:15.5px; max-width:70ch;}
+
+  /* ---------- Final CTA ---------- */
+  .cta-final{
+    background:var(--accent);
+    color:var(--ink);
+  }
+  .cta-final .wrap{display:flex; justify-content:space-between; align-items:center; gap:40px; flex-wrap:wrap;}
+  .cta-final h2{font-size:clamp(26px,3.4vw,38px); font-weight:800; max-width:16ch;}
+  .cta-final p{margin-top:12px; font-size:16.5px; max-width:44ch; color:#3A2A0F;}
+  .cta-actions{display:flex; gap:14px; flex-wrap:wrap;}
+
+  /* ---------- Footer ---------- */
+  footer{background:var(--ink); color:#C6D0D6; padding:64px 0 32px;}
+  .footer-grid{display:grid; grid-template-columns:1.4fr 1fr 1fr; gap:44px;}
+  @media (max-width:760px){ .footer-grid{grid-template-columns:1fr; gap:32px;} }
+  .footer-logo{font-family:'Archivo',sans-serif; font-weight:800; color:#fff; font-size:19px; margin-bottom:14px;}
+  footer h5{color:#fff; font-size:14.5px; font-weight:700; margin-bottom:16px;}
+  footer ul{list-style:none; padding:0; margin:0; display:grid; gap:10px;}
+  footer a{font-size:14.5px; color:#C6D0D6;}
+  footer a:hover{color:#fff;}
+  .footer-bottom{
+    margin-top:56px; padding-top:24px; border-top:1px solid rgba(255,255,255,0.14);
+    display:flex; justify-content:space-between; flex-wrap:wrap; gap:12px; font-size:13px; color:#8FA0AB;
+  }
+
+  /* ---------- WhatsApp float ---------- */
+  .wa-float{
+    position:fixed; bottom:22px; right:22px; z-index:60;
+    width:56px; height:56px; border-radius:50%;
+    background:var(--clean); display:flex; align-items:center; justify-content:center;
+    box-shadow:0 6px 18px rgba(0,0,0,0.22);
+    transition:transform .2s ease, background .2s ease;
+    animation:ringPulse 2.6s ease-out infinite;
+  }
+  .wa-float:hover{background:#316B4C; transform:scale(1.08); animation:none;}
+  @media (prefers-reduced-motion: reduce){ .wa-float{animation:none;} }
+
+  /* ---------- Mobile menu ---------- */
+  .mobile-menu{
+    display:none; position:fixed; inset:0; z-index:70; background:var(--ink);
+    color:#fff; padding:28px; flex-direction:column;
+  }
+  .mobile-menu.open{display:flex;}
+  .mobile-menu a{color:#fff; font-size:20px; font-weight:600; padding:16px 0; border-bottom:1px solid rgba(255,255,255,0.15);}
+  .mobile-close{align-self:flex-end; background:none; border:none; color:#fff; font-size:28px; cursor:pointer;}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="nav">
+    <a href="#top" class="logo">
+      <svg class="logo-mark" viewBox="0 0 40 40" fill="none">
+        <rect x="2" y="10" width="36" height="26" rx="2" fill="#132A3A"/>
+        <rect x="7" y="15" width="10" height="16" rx="1" fill="#E19A34"/>
+        <rect x="21" y="15" width="12" height="16" rx="1" fill="#3E7D5B"/>
+        <rect x="2" y="6" width="36" height="4" rx="1" fill="#E19A34"/>
+      </svg>
+      Exceedinggrace <span>Multiventures</span>
+    </a>
+    <nav class="nav-links">
+      <a href="#services">Services</a>
+      <a href="#why">Why Us</a>
+      <a href="#process">How It Works</a>
+      <a href="#coverage">Coverage</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+    <div class="nav-cta">
+      <a class="nav-phone" href="tel:+2349049699259">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.4 0 .8-.2 1L6.6 10.8z" stroke="#132A3A" stroke-width="1.6"/></svg>
+        <span class="label">+234 904 969 9259</span>
+      </a>
+      <a href="#quote" class="btn btn-primary">Request a Quote</a>
+      <button class="nav-toggle" onclick="document.getElementById('mmenu').classList.add('open')" aria-label="Open menu">
+        <svg width="26" height="26" viewBox="0 0 24 24"><path d="M3 6h18M3 12h18M3 18h18" stroke="#132A3A" stroke-width="2" stroke-linecap="round"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div class="mobile-menu" id="mmenu">
+  <button class="mobile-close" onclick="document.getElementById('mmenu').classList.remove('open')" aria-label="Close menu">×</button>
+  <a href="#services" onclick="document.getElementById('mmenu').classList.remove('open')">Services</a>
+  <a href="#why" onclick="document.getElementById('mmenu').classList.remove('open')">Why Us</a>
+  <a href="#process" onclick="document.getElementById('mmenu').classList.remove('open')">How It Works</a>
+  <a href="#coverage" onclick="document.getElementById('mmenu').classList.remove('open')">Coverage</a>
+  <a href="#faq" onclick="document.getElementById('mmenu').classList.remove('open')">FAQ</a>
+  <a href="tel:+2349049699259">Call +234 904 969 9259</a>
+</div>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap">
+      <div>
+        <span class="hero-tag fade-seq" style="animation-delay:.05s;">Mobile toilet &amp; equipment rental — Lagos</span>
+        <h1 id="hero-headline">Clean, reliable mobile toilets — delivered, set up and serviced wherever your site is.</h1>
+        <p class="lede fade-seq" style="animation-delay:.55s;">Exceedinggrace Multiventures supplies mobile toilet units and rental equipment for construction sites, events and public gatherings across Lagos, with delivery, setup and servicing handled from start to finish.</p>
+        <div class="hero-actions fade-seq" style="animation-delay:.68s;">
+          <a href="#quote" class="btn btn-primary">Request a Quote</a>
+          <a href="tel:+2349049699259" class="btn btn-outline">Call +234 904 969 9259</a>
+        </div>
+        <div class="hero-meta fade-seq" style="animation-delay:.8s;">
+          <div>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="#3E7D5B" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Delivery &amp; pickup handled
+          </div>
+          <div>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="#3E7D5B" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Regular servicing included
+          </div>
+          <div>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="#3E7D5B" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Short &amp; long-term hire
+          </div>
+        </div>
+      </div>
+      <div class="hero-visual fade-seq" style="animation-delay:.3s;">
+        <div class="hero-card">
+          <svg viewBox="0 0 560 420" width="100%">
+            <rect x="0" y="0" width="560" height="420" fill="#EFEEE7"/>
+            <rect x="0" y="330" width="560" height="90" fill="#DDD9CC"/>
+            <!-- units on site -->
+            <g>
+              <rect x="60" y="190" width="90" height="140" rx="4" fill="#132A3A"/>
+              <rect x="70" y="205" width="70" height="55" rx="2" fill="#E19A34"/>
+              <rect x="95" y="270" width="20" height="45" rx="2" fill="#3E5464"/>
+              <circle cx="105" cy="292" r="3" fill="#EFEEE7"/>
+            </g>
+            <g>
+              <rect x="170" y="170" width="98" height="160" rx="4" fill="#1B3A50"/>
+              <rect x="182" y="188" width="74" height="60" rx="2" fill="#3E7D5B"/>
+              <rect x="207" y="260" width="22" height="50" rx="2" fill="#0F2331"/>
+              <circle cx="218" cy="285" r="3.2" fill="#EFEEE7"/>
+            </g>
+            <g>
+              <rect x="288" y="200" width="86" height="130" rx="4" fill="#132A3A"/>
+              <rect x="298" y="214" width="66" height="52" rx="2" fill="#E19A34"/>
+              <rect x="321" y="276" width="20" height="42" rx="2" fill="#3E5464"/>
+              <circle cx="331" cy="297" r="3" fill="#EFEEE7"/>
+            </g>
+            <!-- delivery van -->
+            <g class="van-group">
+              <rect x="392" y="260" width="140" height="66" rx="5" fill="#B9761C"/>
+              <rect x="402" y="272" width="60" height="34" rx="3" fill="#F5F5F1"/>
+              <rect x="470" y="278" width="52" height="46" rx="3" fill="#B9761C"/>
+              <rect x="480" y="286" width="26" height="20" rx="2" fill="#EFEEE7"/>
+              <circle class="wheel" cx="424" cy="330" r="14" fill="#132A3A"/>
+              <circle class="wheel" cx="424" cy="330" r="5" fill="#DDD9CC"/>
+              <line class="wheel" x1="424" y1="322" x2="424" y2="338" stroke="#5A6B75" stroke-width="1.4"/>
+              <circle class="wheel" cx="500" cy="330" r="14" fill="#132A3A"/>
+              <circle class="wheel" cx="500" cy="330" r="5" fill="#DDD9CC"/>
+              <line class="wheel" x1="500" y1="322" x2="500" y2="338" stroke="#5A6B75" stroke-width="1.4"/>
+            </g>
+            <line class="road-dash" x1="0" y1="328" x2="560" y2="328" stroke="#B9761C" stroke-width="4" opacity="0.5" stroke-dasharray="18 14"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRUST STRIP -->
+  <div class="trust">
+    <div class="wrap reveal-group">
+      <div class="trust-item">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none"><path d="M3 12l2-7h14l2 7M5 12v7a1 1 0 001 1h1a1 1 0 001-1v-1h8v1a1 1 0 001 1h1a1 1 0 001-1v-7M5 12h14" stroke="#E19A34" stroke-width="1.6" stroke-linejoin="round"/></svg>
+        <div>
+          <h4>Delivery across Lagos</h4>
+          <p>Units transported, positioned and collected by our own team.</p>
+        </div>
+      </div>
+      <div class="trust-item">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none"><path d="M12 2l8 4v6c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V6l8-4z" stroke="#3E7D5B" stroke-width="1.6" stroke-linejoin="round"/></svg>
+        <div>
+          <h4>Hygiene-first servicing</h4>
+          <p>Units are cleaned and restocked on a set schedule while on hire.</p>
+        </div>
+      </div>
+      <div class="trust-item">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="#E19A34" stroke-width="1.6"/><path d="M12 7v5l3.5 2" stroke="#E19A34" stroke-width="1.6" stroke-linecap="round"/></svg>
+        <div>
+          <h4>Flexible hire periods</h4>
+          <p>From a single-day event to a multi-month site contract.</p>
+        </div>
+      </div>
+      <div class="trust-item">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none"><path d="M22 16.9v3a2 2 0 01-2.2 2 19.8 19.8 0 01-8.6-3 19.5 19.5 0 01-6-6 19.8 19.8 0 01-3-8.7A2 2 0 014.1 2h3a2 2 0 012 1.7c.1 1 .3 2 .7 2.9a2 2 0 01-.4 2.1L8.1 9.9a16 16 0 006 6l1.2-1.3a2 2 0 012.1-.4c.9.4 1.9.6 2.9.7a2 2 0 011.7 2z" stroke="#3E7D5B" stroke-width="1.6" stroke-linejoin="round"/></svg>
+        <div>
+          <h4>Direct line, always on</h4>
+          <p>Call or WhatsApp us straight to the team handling your order.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SERVICES -->
+  <section id="services">
+    <div class="wrap">
+      <div class="sec-head" data-reveal>
+        <span class="sec-kicker">What we provide</span>
+        <h2>Mobile toilet rental built around where you need it</h2>
+        <p>Whether it's a fenced construction site, a one-day event, or an outdoor gathering with hundreds of guests, we match the unit type and hire terms to the job.</p>
+      </div>
+      <div class="services-grid reveal-group">
+        <div class="service-card">
+          <svg class="service-icon" viewBox="0 0 48 48" fill="none"><rect x="6" y="10" width="36" height="32" rx="3" fill="#FBEEDB" stroke="#E19A34" stroke-width="1.6"/><rect x="14" y="18" width="20" height="16" rx="2" fill="#E19A34"/><rect x="20" y="6" width="8" height="6" rx="1" fill="#E19A34"/></svg>
+          <h3>Construction sites</h3>
+          <p>Durable units for site crews, with a servicing schedule that fits your project timeline.</p>
+          <ul>
+            <li>Site delivery &amp; positioning</li>
+            <li>Weekly or custom servicing</li>
+            <li>Hire for the length of the build</li>
+          </ul>
+        </div>
+        <div class="service-card">
+          <svg class="service-icon" viewBox="0 0 48 48" fill="none"><rect x="6" y="10" width="36" height="32" rx="3" fill="#E7F0EA" stroke="#3E7D5B" stroke-width="1.6"/><rect x="14" y="18" width="20" height="16" rx="2" fill="#3E7D5B"/><path d="M18 24l4 4 8-8" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <h3>Weddings &amp; private events</h3>
+          <p>Clean, well-presented units placed discreetly so guests have easy, comfortable access.</p>
+          <ul>
+            <li>Set up before guests arrive</li>
+            <li>Cleaned during and after the event</li>
+            <li>Same-day and weekend hire</li>
+          </ul>
+        </div>
+        <div class="service-card">
+          <svg class="service-icon" viewBox="0 0 48 48" fill="none"><rect x="6" y="10" width="36" height="32" rx="3" fill="#EFEEE7" stroke="#132A3A" stroke-width="1.6"/><rect x="14" y="18" width="8" height="16" rx="1" fill="#132A3A"/><rect x="26" y="18" width="8" height="16" rx="1" fill="#132A3A"/></svg>
+          <h3>Public &amp; corporate gatherings</h3>
+          <p>Multiple units placed and serviced for crowds — concerts, church programmes, launches and fairs.</p>
+          <ul>
+            <li>Multi-unit deployment</li>
+            <li>On-site attendance for larger crowds</li>
+            <li>Fast turnaround booking</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY US -->
+  <section class="why" id="why">
+    <div class="wrap">
+      <div data-reveal>
+        <span class="sec-kicker">Why work with us</span>
+        <h2>Handled from the first call to pickup</h2>
+        <p style="margin-top:16px; color:var(--ink-soft); font-size:16px;">You tell us the job, the location and how long you need units for. We take care of the logistics around it.</p>
+      </div>
+      <div class="why-list reveal-group">
+        <div class="why-row">
+          <div class="why-num">1</div>
+          <div>
+            <h4>One point of contact</h4>
+            <p>You speak to the same team for booking, delivery and any servicing requests during your hire period.</p>
+          </div>
+        </div>
+        <div class="why-row">
+          <div class="why-num">2</div>
+          <div>
+            <h4>Units matched to the job</h4>
+            <p>We recommend the number and type of units based on your site, event size and how long you'll need them.</p>
+          </div>
+        </div>
+        <div class="why-row">
+          <div class="why-num">3</div>
+          <div>
+            <h4>Servicing while on hire</h4>
+            <p>Units are cleaned and restocked on a schedule agreed with you, so there's no need to chase us.</p>
+          </div>
+        </div>
+        <div class="why-row">
+          <div class="why-num">4</div>
+          <div>
+            <h4>Clean pickup at the end</h4>
+            <p>Once your event or project wraps up, we collect the units on the date you agree with us.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESS -->
+  <section class="process" id="process">
+    <div class="wrap">
+      <div class="sec-head" data-reveal>
+        <span class="sec-kicker">How it works</span>
+        <h2>Four steps from enquiry to pickup</h2>
+      </div>
+      <div class="process-grid reveal-group">
+        <div class="process-step">
+          <div class="step-num">01</div>
+          <h4>You tell us the job</h4>
+          <p>Location, dates and roughly how many people will be using the units.</p>
+        </div>
+        <div class="process-step">
+          <div class="step-num">02</div>
+          <h4>We confirm a quote</h4>
+          <p>You get a straight quote by phone, WhatsApp or email — no back and forth.</p>
+        </div>
+        <div class="process-step">
+          <div class="step-num">03</div>
+          <h4>We deliver &amp; set up</h4>
+          <p>Units arrive positioned and ready before your start date or event.</p>
+        </div>
+        <div class="process-step">
+          <div class="step-num">04</div>
+          <h4>We service &amp; collect</h4>
+          <p>Cleaning happens on schedule, and pickup is arranged once you're done.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COVERAGE -->
+  <section class="coverage" id="coverage">
+    <div class="wrap">
+      <div data-reveal>
+        <span class="sec-kicker" style="color:#E19A34;">Where we operate</span>
+        <h2>Serving construction sites and events across Lagos</h2>
+        <p>Tell us your location when you request a quote and we'll confirm delivery timing for your area.</p>
+        <div class="coverage-tags">
+          <span>Construction sites</span>
+          <span>Weddings &amp; parties</span>
+          <span>Corporate events</span>
+          <span>Public gatherings</span>
+          <span>Short-term hire</span>
+          <span>Long-term site contracts</span>
+        </div>
+      </div>
+      <div data-reveal style="transition-delay:.12s;">
+        <svg viewBox="0 0 500 340" width="100%">
+          <rect x="0" y="0" width="500" height="340" rx="6" fill="#0F2331"/>
+          <g opacity="0.5" stroke="#3E5464" stroke-width="1">
+            <line x1="0" y1="68" x2="500" y2="68"/>
+            <line x1="0" y1="136" x2="500" y2="136"/>
+            <line x1="0" y1="204" x2="500" y2="204"/>
+            <line x1="0" y1="272" x2="500" y2="272"/>
+            <line x1="100" y1="0" x2="100" y2="340"/>
+            <line x1="200" y1="0" x2="200" y2="340"/>
+            <line x1="300" y1="0" x2="300" y2="340"/>
+            <line x1="400" y1="0" x2="400" y2="340"/>
+          </g>
+          <circle class="map-dot" cx="150" cy="120" r="7" fill="#E19A34" style="animation-delay:0s;"/>
+          <circle class="map-dot" cx="260" cy="90" r="7" fill="#E19A34" style="animation-delay:.4s;"/>
+          <circle class="map-dot" cx="320" cy="200" r="7" fill="#E19A34" style="animation-delay:.8s;"/>
+          <circle class="map-dot" cx="200" cy="240" r="7" fill="#E19A34" style="animation-delay:1.2s;"/>
+          <circle class="map-dot" cx="380" cy="140" r="7" fill="#E19A34" style="animation-delay:1.6s;"/>
+          <text x="250" y="320" fill="#8FA0AB" font-family="Public Sans, sans-serif" font-size="13" text-anchor="middle">Delivery points confirmed at time of booking</text>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq">
+    <div class="wrap">
+      <div class="sec-head" data-reveal>
+        <span class="sec-kicker">Common questions</span>
+        <h2>Frequently asked questions</h2>
+      </div>
+      <div class="faq-list reveal-group">
+        <div class="faq-item">
+          <button class="faq-q">What's the minimum hire period?<span class="plus">+</span></button>
+          <div class="faq-a"><p>It depends on whether it's a one-day event or an ongoing site. Tell us your dates when you request a quote and we'll confirm what works.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">How often are units serviced during hire?<span class="plus">+</span></button>
+          <div class="faq-a"><p>We agree a cleaning and restocking schedule with you up front, based on how many people are using the units and how long the hire runs.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">Do you deliver and set up the units?<span class="plus">+</span></button>
+          <div class="faq-a"><p>Yes. Our team handles transport, positioning on site, and pickup once your project or event is over.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">How do I get a price?<span class="plus">+</span></button>
+          <div class="faq-a"><p>Send us your location, dates and the number of units you think you'll need through the quote form, WhatsApp or a call, and we'll confirm pricing directly with you.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL CTA / QUOTE -->
+  <section class="cta-final" id="quote">
+    <div class="wrap" data-reveal>
+      <div>
+        <h2>Ready to book units for your site or event?</h2>
+        <p>Call, WhatsApp or send us your details — we'll come back to you with a quote.</p>
+      </div>
+      <div class="cta-actions">
+        <a href="tel:+2349049699259" class="btn" style="background:var(--ink); color:#fff;">Call +234 904 969 9259</a>
+        <a href="https://wa.me/2349049699259" target="_blank" rel="noopener" class="btn btn-outline">WhatsApp Us</a>
+        <a href="mailto:support@exceedinggrace.com" class="btn btn-outline">Email Us</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-logo">Exceedinggrace Multiventures</div>
+        <p style="max-width:38ch; font-size:14.5px;">Mobile toilet and equipment rental for construction sites, events and public gatherings across Lagos.</p>
+      </div>
+      <div>
+        <h5>Company</h5>
+        <ul>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#why">Why Us</a></li>
+          <li><a href="#process">How It Works</a></li>
+          <li><a href="#faq">FAQ</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Contact</h5>
+        <ul>
+          <li><a href="tel:+2349049699259">+234 904 969 9259</a></li>
+          <li><a href="mailto:support@exceedinggrace.com">support@exceedinggrace.com</a></li>
+          <li><a href="https://wa.me/2349049699259" target="_blank" rel="noopener">WhatsApp</a></li>
+          <li>Lagos, Nigeria</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Exceedinggrace Multiventures. All rights reserved.</span>
+      <span>Lagos, Nigeria</span>
+    </div>
+  </div>
+</footer>
+
+<a class="wa-float" href="https://wa.me/2349049699259" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+  <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M12 2a10 10 0 00-8.6 15.1L2 22l5.1-1.3A10 10 0 1012 2z" fill="#fff" opacity="0.001"/><path d="M17.5 14.4c-.3-.1-1.7-.8-2-.9-.3-.1-.5-.1-.6.1-.2.3-.7.9-.9 1.1-.2.2-.3.2-.6.1-.3-.2-1.2-.5-2.3-1.5-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5.2-.2.2-.3.3-.5.1-.2 0-.4 0-.5C10.2 9 9.7 7.8 9.5 7.3c-.2-.4-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.3.3-1 1-1 2.4s1 2.8 1.2 3c.1.2 2 3.1 4.9 4.3.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.5-.1 1.7-.7 1.9-1.4.2-.6.2-1.2.2-1.3-.1-.1-.3-.2-.6-.3z" fill="#fff"/></svg>
+</a>
+
+<script>
+  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* Hero headline: split into words, each masked and animated in */
+  (function(){
+    var el = document.getElementById('hero-headline');
+    if(!el) return;
+    var text = el.textContent.trim();
+    var words = text.split(/\s+/);
+    el.textContent = '';
+    words.forEach(function(word, i){
+      var mask = document.createElement('span');
+      mask.className = 'word-mask';
+      var inner = document.createElement('span');
+      inner.className = 'word-inner';
+      inner.textContent = word;
+      if(!reduceMotion){
+        inner.style.animationDelay = (0.08 * i) + 's';
+      }
+      mask.appendChild(inner);
+      el.appendChild(mask);
+      el.appendChild(document.createTextNode(' '));
+    });
+    requestAnimationFrame(function(){
+      el.classList.add('anim-run');
+    });
+  })();
+
+  /* Scroll-triggered reveals */
+  var revealEls = document.querySelectorAll('[data-reveal], .reveal-group');
+  if('IntersectionObserver' in window && !reduceMotion){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if(entry.isIntersecting){
+          entry.target.classList.add('in-view');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15, rootMargin: '0px 0px -60px 0px' });
+    revealEls.forEach(function(el){ io.observe(el); });
+  } else {
+    revealEls.forEach(function(el){ el.classList.add('in-view'); });
+  }
+
+  /* FAQ accordion */
+  document.querySelectorAll('.faq-q').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var item = btn.closest('.faq-item');
+      var ans = item.querySelector('.faq-a');
+      var wasOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item.open').forEach(function(el){
+        el.classList.remove('open');
+        el.querySelector('.faq-a').style.maxHeight = null;
+      });
+      if(!wasOpen){
+        item.classList.add('open');
+        ans.style.maxHeight = ans.scrollHeight + 'px';
+      }
+    });
+  });
+</script>
+
+</body>
+</html>
