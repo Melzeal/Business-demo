@@ -1,0 +1,786 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Port Harcourt Heavy Duty Logistics | Crane &amp; Forklift Rental</title>
+<meta name="description" content="Port Harcourt Heavy Duty Logistics supplies mobile cranes, forklifts and site-lifting equipment for construction, oil &amp; gas and port operations across Port Harcourt. Request a quote today.">
+<meta property="og:title" content="Port Harcourt Heavy Duty Logistics | Crane & Forklift Rental">
+<meta property="og:description" content="Mobile cranes, forklifts and site-lifting equipment, mobilized and operated across Port Harcourt.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#181B1D;
+    --ink2:#232729;
+    --bg:#F1F0EA;
+    --surface:#FFFFFF;
+    --line:#DAD7CC;
+    --yellow:#F5B400;
+    --yellow-deep:#C98F00;
+    --steel:#31576A;
+    --steel-light:#4E7889;
+    --steel-soft:#E7EEF1;
+    --max:1180px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{margin:0; font-family:'Inter', sans-serif; color:var(--ink); background:var(--bg); line-height:1.55; -webkit-font-smoothing:antialiased; overflow-x:hidden;}
+  h1,h2,h3,h4{font-family:'Oswald', sans-serif; color:var(--ink); margin:0; line-height:1.1; font-weight:600; letter-spacing:0.01em;}
+  p{margin:0;}
+  a{color:inherit; text-decoration:none;}
+  ul{margin:0;}
+  .wrap{max-width:var(--max); margin:0 auto; padding:0 28px;}
+  section{padding:104px 0;}
+  @media (max-width:700px){ section{padding:64px 0;} }
+
+  /* ---------- Motion ---------- */
+  @keyframes fadeUp{ from{opacity:0; transform:translateY(24px);} to{opacity:1; transform:translateY(0);} }
+  @keyframes wordUp{ from{transform:translateY(112%);} to{transform:translateY(0);} }
+  @keyframes ringPulse{ 0%{box-shadow:0 0 0 0 rgba(245,180,0,0.5);} 70%{box-shadow:0 0 0 14px rgba(245,180,0,0);} 100%{box-shadow:0 0 0 0 rgba(245,180,0,0);} }
+  @keyframes spinWheel{ to{ transform:rotate(360deg); } }
+  @keyframes craneArm{ 0%,100%{ transform:rotate(0deg); } 50%{ transform:rotate(-3deg); } }
+  @keyframes hookSwing{ 0%,100%{ transform:translateX(0); } 50%{ transform:translateX(5px); } }
+  @keyframes beaconBlink{ 0%,100%{ opacity:1; } 50%{ opacity:0.2; } }
+  @keyframes kenburns{ from{ transform:scale(1); } to{ transform:scale(1.08); } }
+  @keyframes marquee{ from{ transform:translateX(0); } to{ transform:translateX(-50%); } }
+  @keyframes dotPulse{ 0%,100%{transform:scale(1); opacity:1;} 50%{transform:scale(1.5); opacity:0.5;} }
+
+  .word-mask{display:inline-block; overflow:hidden; vertical-align:top; padding-bottom:0.08em; margin-bottom:-0.08em;}
+  .word-inner{display:inline-block; will-change:transform;}
+  .anim-run .word-inner{animation:wordUp .7s cubic-bezier(.22,1,.36,1) both;}
+  .fade-seq{opacity:0; animation:fadeUp .7s cubic-bezier(.22,1,.36,1) both;}
+
+  [data-reveal]{opacity:0; transform:translateY(26px); transition:opacity .6s cubic-bezier(.22,1,.36,1), transform .6s cubic-bezier(.22,1,.36,1);}
+  [data-reveal].in-view{opacity:1; transform:translateY(0);}
+  .reveal-group .rv{opacity:0; transform:translateY(22px); transition:opacity .6s cubic-bezier(.22,1,.36,1), transform .6s cubic-bezier(.22,1,.36,1);}
+  .reveal-group.in-view .rv{opacity:1; transform:translateY(0);}
+  .reveal-group .rv:nth-child(1){transition-delay:.04s;} .reveal-group .rv:nth-child(2){transition-delay:.13s;}
+  .reveal-group .rv:nth-child(3){transition-delay:.22s;} .reveal-group .rv:nth-child(4){transition-delay:.31s;}
+  .reveal-group .rv:nth-child(5){transition-delay:.40s;}
+
+  .wheel{transform-box:fill-box; transform-origin:center; animation:spinWheel 1.6s linear infinite;}
+  .crane-arm{transform-box:fill-box; transform-origin:15% 100%; animation:craneArm 5s ease-in-out infinite;}
+  .hook{animation:hookSwing 5s ease-in-out infinite;}
+  .beacon{animation:beaconBlink 1s steps(2) infinite;}
+  .map-dot{transform-box:fill-box; transform-origin:center; animation:dotPulse 2.6s ease-in-out infinite;}
+
+  .photo-card{overflow:hidden;}
+  .photo-card svg{transition:transform 1.2s ease;}
+  .photo-card:hover svg{animation:kenburns 6s ease forwards;}
+
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    *{animation-duration:0.001ms !important; transition-duration:0.001ms !important;}
+    .word-inner{transform:none !important;}
+    [data-reveal], .reveal-group .rv{opacity:1 !important; transform:none !important;}
+    .ticker-track{transform:none !important;}
+  }
+
+  /* ---------- Buttons ---------- */
+  .btn{display:inline-flex; align-items:center; gap:10px; padding:16px 30px; font-weight:600; font-size:15.5px; border-radius:2px; cursor:pointer; border:2px solid transparent; transition:transform .15s ease, background .15s ease, border-color .15s ease, color .15s ease; white-space:nowrap;}
+  .btn:hover{transform:translateY(-2px);}
+  .btn-primary{background:var(--yellow); color:var(--ink);}
+  .btn-primary:hover{background:var(--yellow-deep); color:#fff;}
+  .btn-outline{background:transparent; border-color:rgba(255,255,255,0.5); color:#fff;}
+  .btn-outline:hover{background:#fff; color:var(--ink); border-color:#fff;}
+  .btn-outline-dark{background:transparent; border-color:var(--ink); color:var(--ink);}
+  .btn-outline-dark:hover{background:var(--ink); color:#fff;}
+
+  /* ---------- Nav ---------- */
+  header{position:fixed; top:0; left:0; right:0; z-index:50; padding:20px 0; transition:background .3s ease, padding .3s ease, border-color .3s ease; border-bottom:1px solid transparent;}
+  header.scrolled{background:rgba(24,27,29,0.95); backdrop-filter:blur(8px); padding:14px 0; border-color:rgba(255,255,255,0.08);}
+  .nav{display:flex; align-items:center; justify-content:space-between; max-width:var(--max); margin:0 auto; padding:0 28px;}
+  .logo{font-family:'Oswald', sans-serif; font-weight:600; font-size:18px; display:flex; align-items:center; gap:10px; color:#fff;}
+  .logo-mark{width:34px; height:34px; flex-shrink:0;}
+  .logo span{color:var(--yellow);}
+  .nav-links{display:flex; gap:30px; align-items:center;}
+  .nav-links a{font-size:14px; font-weight:500; color:#C7CDD1;}
+  .nav-links a:hover{color:#fff;}
+  .nav-cta{display:flex; align-items:center; gap:14px;}
+  .nav-phone{font-weight:600; font-size:14px; color:#fff; display:flex; align-items:center; gap:8px;}
+  .nav-toggle{display:none; background:none; border:none; cursor:pointer;}
+  @media (max-width:900px){ .nav-links{display:none;} .nav-toggle{display:block;} .nav-phone span.label{display:none;} }
+  @media (max-width:560px){ .nav-cta .nav-phone, .nav-cta .btn-primary{display:none;} .nav{padding:0 20px;} }
+
+  /* ---------- HERO: diagonal bleed ---------- */
+  .hero{background:var(--ink); color:#fff; position:relative; overflow:hidden; padding:170px 0 0;}
+  .hero-diagonal{position:absolute; top:0; right:-10%; width:62%; height:100%; background:linear-gradient(160deg, var(--steel) 0%, #1E3A46 100%); clip-path:polygon(38% 0, 100% 0, 100% 100%, 8% 100%); z-index:0;}
+  .hero .wrap{position:relative; z-index:2;}
+  .hero-content{max-width:640px;}
+  .hero-tag{display:inline-block; font-size:13.5px; font-weight:600; color:var(--ink); background:var(--yellow); padding:7px 14px; border-radius:2px; margin-bottom:24px;}
+  .hero h1{font-size:clamp(32px, 4.6vw, 52px); font-weight:600; color:#fff;}
+  .hero p.lede{margin-top:22px; font-size:17.5px; color:#B7BEC2; max-width:44ch;}
+  .hero-actions{margin-top:32px; display:flex; gap:16px; flex-wrap:wrap;}
+
+  .eq-tabs{margin-top:52px; border-top:1px solid rgba(255,255,255,0.14); padding-top:26px; max-width:760px;}
+  .eq-tab-buttons{display:flex; gap:0; flex-wrap:wrap;}
+  .eq-tab-buttons button{
+    background:none; border:none; color:#8B939A; font-family:'Oswald',sans-serif; font-weight:600; font-size:14.5px;
+    padding:10px 0; margin-right:32px; cursor:pointer; border-bottom:2px solid transparent; transition:color .2s ease, border-color .2s ease;
+  }
+  .eq-tab-buttons button.active{color:var(--yellow); border-color:var(--yellow);}
+  .eq-tab-panels p{color:#B7BEC2; font-size:15px; margin-top:16px; max-width:52ch; display:none;}
+  .eq-tab-panels p.active{display:block;}
+
+  .hero-scene{position:relative; height:340px; margin-top:70px;}
+  .hero-scene-mobile{display:none;}
+  @media (max-width:940px){ .hero-diagonal{display:none;} .hero{padding-top:130px;} .hero-scene{height:260px;} }
+
+  @media (max-width:700px){
+    .hero{padding-top:104px; padding-bottom:0;}
+    .hero-tag{font-size:12.5px; padding:6px 12px; margin-bottom:18px;}
+    .hero h1{font-size:clamp(28px, 8vw, 36px); max-width:20ch;}
+    .hero p.lede{font-size:16px; margin-top:16px;}
+    .hero-actions{margin-top:26px; flex-direction:column; gap:12px;}
+    .hero-actions .btn{width:100%; justify-content:center;}
+    .eq-tabs{margin-top:34px; padding-top:20px;}
+    .eq-tab-buttons{flex-wrap:nowrap; overflow-x:auto; -webkit-overflow-scrolling:touch; scrollbar-width:none; padding-bottom:2px;}
+    .eq-tab-buttons::-webkit-scrollbar{display:none;}
+    .eq-tab-buttons button{margin-right:22px; font-size:13.5px; flex-shrink:0;}
+    .eq-tab-panels p{font-size:14px; margin-top:14px;}
+    .hero-scene{display:none;}
+    .hero-scene-mobile{display:block; margin-top:32px; padding:0 0 0; position:relative;}
+    .hero-scene-mobile svg{width:100%; height:auto; display:block;}
+    .hero-bottom-accent{height:5px; background:linear-gradient(90deg, var(--yellow) 0%, var(--steel-light) 100%); margin-top:0;}
+  }
+
+  /* ---------- Ticker ---------- */
+  .ticker{background:var(--yellow); overflow:hidden; padding:16px 0; border-top:1px solid rgba(0,0,0,0.08); border-bottom:1px solid rgba(0,0,0,0.08);}
+  .ticker-track{display:flex; width:max-content; gap:0; animation:marquee 26s linear infinite;}
+  .ticker-track span{display:flex; align-items:center; gap:10px; font-family:'Oswald',sans-serif; font-weight:600; font-size:14.5px; color:var(--ink); padding:0 28px; white-space:nowrap;}
+  .ticker-track span::before{content:"—"; color:rgba(0,0,0,0.4);}
+
+  /* ---------- Section heading ---------- */
+  .sec-head{max-width:640px; margin-bottom:52px;}
+  .sec-kicker{color:var(--yellow-deep); font-weight:600; font-size:14px; margin-bottom:12px; display:block;}
+  .sec-head h2{font-size:clamp(26px,3.2vw,36px);}
+  .sec-head p{margin-top:14px; color:#5C6469; font-size:16.5px;}
+  .sec-head.light .sec-kicker{color:var(--yellow);}
+  .sec-head.light h2{color:#fff;}
+  .sec-head.light p{color:#C9D3D8;}
+
+  /* ---------- Services: spec-sheet table ---------- */
+  .spec-table{width:100%; border-collapse:collapse;}
+  .spec-table thead th{
+    text-align:left; font-family:'Oswald',sans-serif; font-weight:600; font-size:13.5px; color:#5C6469;
+    padding:0 20px 16px; border-bottom:2px solid var(--ink); text-transform:none;
+  }
+  .spec-table tbody tr{border-bottom:1px solid var(--line); transition:background .2s ease;}
+  .spec-table tbody tr:hover{background:var(--surface);}
+  .spec-table td{padding:26px 20px; vertical-align:top;}
+  .spec-eq{display:flex; align-items:center; gap:16px; font-family:'Oswald',sans-serif; font-weight:600; font-size:17px;}
+  .spec-eq svg{flex-shrink:0; width:36px; height:36px;}
+  .spec-table td p{color:#5C6469; font-size:14.5px; max-width:32ch;}
+  .spec-table .tag{display:inline-block; font-size:12.5px; font-weight:600; padding:5px 10px; border:1px solid var(--line); border-radius:2px; margin:3px 6px 3px 0; color:#3E464B;}
+  @media (max-width:760px){
+    .spec-table thead{display:none;}
+    .spec-table, .spec-table tbody, .spec-table tr, .spec-table td{display:block; width:100%;}
+    .spec-table tr{padding:20px 0;}
+    .spec-table td{padding:6px 0;}
+  }
+
+  /* ---------- Industries: skewed band ---------- */
+  .industries{background:var(--steel); position:relative; overflow:hidden; color:#fff;}
+  .industries::before{content:""; position:absolute; inset:0; background:linear-gradient(180deg, rgba(0,0,0,0.12), transparent 40%);}
+  .ind-rows{position:relative; z-index:1; display:grid; gap:16px;}
+  .ind-row{display:flex; gap:14px; flex-wrap:wrap;}
+  .ind-row:nth-child(2){margin-left:48px;}
+  @media (max-width:700px){ .ind-row:nth-child(2){margin-left:0;} }
+  .ind-chip{
+    display:flex; align-items:center; gap:12px; background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.18);
+    padding:16px 20px; border-radius:2px; flex:1 1 240px;
+  }
+  .ind-chip svg{flex-shrink:0;}
+  .ind-chip h4{font-size:15px; color:#fff; margin-bottom:3px;}
+  .ind-chip p{font-size:13px; color:#C9D3D8;}
+
+  /* ---------- Timeline (why + process combined) ---------- */
+  .timeline{position:relative;}
+  .timeline-line{position:absolute; left:23px; top:8px; bottom:8px; width:2px; background:var(--line);}
+  @media (max-width:600px){ .timeline-line{left:19px;} }
+  .tl-item{display:flex; gap:26px; position:relative; padding-bottom:44px;}
+  .tl-item:last-child{padding-bottom:0;}
+  .tl-num{width:48px; height:48px; border-radius:50%; background:var(--ink); color:var(--yellow); font-family:'Oswald',sans-serif; font-weight:600; font-size:16px; display:flex; align-items:center; justify-content:center; flex-shrink:0; position:relative; z-index:1;}
+  @media (max-width:600px){ .tl-num{width:40px; height:40px; font-size:14px;} }
+  .tl-body h4{font-size:17px; margin-bottom:8px;}
+  .tl-body p{color:#5C6469; font-size:15px; max-width:56ch;}
+  .tl-phase{display:inline-block; font-size:12px; font-weight:600; color:var(--yellow-deep); background:var(--yellow-soft, #FBEBC4); padding:3px 9px; border-radius:2px; margin-bottom:8px;}
+
+  /* ---------- Gallery: asymmetric ---------- */
+  .gallery{background:var(--ink); color:#fff;}
+  .gallery-layout{display:grid; grid-template-columns:1.4fr 1fr; gap:20px;}
+  @media (max-width:860px){ .gallery-layout{grid-template-columns:1fr;} }
+  .gallery-stack{display:grid; gap:20px;}
+  .gallery-card{background:var(--ink2); border:1px solid rgba(255,255,255,0.08); height:100%;}
+  .gallery-card .cap{padding:20px 22px;}
+  .gallery-card h4{color:#fff; font-size:16.5px; margin-bottom:6px;}
+  .gallery-card p{color:#9CA4A9; font-size:14px;}
+  .gallery-card.featured .photo-card svg{display:block; height:100%;}
+
+  /* ---------- Coverage ---------- */
+  .coverage{background:var(--bg); position:relative; clip-path:polygon(0 4%, 100% 0, 100% 96%, 0 100%);}
+  .coverage-inner{background:var(--steel); color:#fff; padding:104px 0;}
+  .coverage .wrap{display:grid; grid-template-columns:1fr 1fr; gap:56px; align-items:center;}
+  @media (max-width:900px){ .coverage .wrap{grid-template-columns:1fr;} }
+  .coverage h2{color:#fff; font-size:clamp(26px,3vw,34px);}
+  .coverage p{color:#DCE7EC; margin-top:16px; font-size:16px; max-width:48ch;}
+  .coverage-tags{display:flex; flex-wrap:wrap; gap:10px; margin-top:26px;}
+  .coverage-tags span{border:1px solid rgba(255,255,255,0.32); border-radius:2px; padding:8px 14px; font-size:13.5px; color:#EAF1F4;}
+
+  /* ---------- FAQ: two column ---------- */
+  .faq-layout{display:grid; grid-template-columns:0.8fr 1.2fr; gap:60px;}
+  @media (max-width:860px){ .faq-layout{grid-template-columns:1fr; gap:32px;} }
+  .faq-side p{color:#5C6469; font-size:15.5px; margin-top:14px; max-width:38ch;}
+  .faq-side .btn{margin-top:24px;}
+  .faq-list{border-top:1px solid var(--line);}
+  .faq-item{border-bottom:1px solid var(--line);}
+  .faq-q{width:100%; text-align:left; background:none; border:none; cursor:pointer; padding:20px 0; display:flex; justify-content:space-between; align-items:center; font-family:'Oswald', sans-serif; font-weight:600; font-size:16.5px; color:var(--ink);}
+  .faq-q .plus{font-size:22px; font-weight:400; color:var(--yellow-deep); transition:transform .2s ease; flex-shrink:0; margin-left:20px;}
+  .faq-item.open .plus{transform:rotate(45deg);}
+  .faq-a{max-height:0; overflow:hidden; transition:max-height .25s ease;}
+  .faq-a p{padding-bottom:20px; color:#5C6469; font-size:15px; max-width:60ch;}
+
+  /* ---------- Final CTA ---------- */
+  .cta-final{background:var(--yellow); color:var(--ink);}
+  .cta-final .wrap{display:flex; justify-content:space-between; align-items:center; gap:40px; flex-wrap:wrap;}
+  .cta-final h2{font-size:clamp(26px,3.4vw,38px); max-width:16ch;}
+  .cta-final p{margin-top:12px; font-size:16.5px; max-width:44ch; color:#3E3000;}
+  .cta-actions{display:flex; gap:14px; flex-wrap:wrap;}
+
+  /* ---------- Footer ---------- */
+  footer{background:var(--ink); color:#9CA4A9; padding:64px 0 32px;}
+  .footer-grid{display:grid; grid-template-columns:1.4fr 1fr 1fr; gap:44px;}
+  @media (max-width:760px){ .footer-grid{grid-template-columns:1fr; gap:32px;} }
+  .footer-logo{font-family:'Oswald',sans-serif; font-weight:600; color:#fff; font-size:19px; margin-bottom:14px;}
+  footer h5{color:#fff; font-size:14.5px; font-weight:600; margin-bottom:16px;}
+  footer ul{list-style:none; padding:0; margin:0; display:grid; gap:10px;}
+  footer a{font-size:14.5px; color:#9CA4A9;}
+  footer a:hover{color:#fff;}
+  .footer-bottom{margin-top:56px; padding-top:24px; border-top:1px solid rgba(255,255,255,0.1); display:flex; justify-content:space-between; flex-wrap:wrap; gap:12px; font-size:13px; color:#6B7378;}
+
+  .wa-float{position:fixed; bottom:22px; right:22px; z-index:60; width:56px; height:56px; border-radius:50%; background:#2FAE60; display:flex; align-items:center; justify-content:center; box-shadow:0 6px 18px rgba(0,0,0,0.3); transition:transform .2s ease; animation:ringPulse 2.6s ease-out infinite;}
+  .wa-float:hover{transform:scale(1.08); animation:none;}
+  @media (prefers-reduced-motion: reduce){ .wa-float{animation:none;} }
+
+  .mobile-menu{display:none; position:fixed; inset:0; z-index:70; background:var(--ink); color:#fff; padding:28px; flex-direction:column;}
+  .mobile-menu.open{display:flex;}
+  .mobile-menu a{color:#fff; font-size:20px; font-weight:600; padding:16px 0; border-bottom:1px solid rgba(255,255,255,0.15);}
+  .mobile-menu a.btn{border-bottom:none; font-size:15.5px; padding:16px 30px;}
+  .mobile-close{align-self:flex-end; background:none; border:none; color:#fff; font-size:28px; cursor:pointer;}
+</style>
+</head>
+<body>
+
+<header id="siteHeader">
+  <div class="nav">
+    <a href="#top" class="logo">
+      <svg class="logo-mark" viewBox="0 0 40 40" fill="none">
+        <rect x="3" y="24" width="34" height="10" rx="1" fill="#181B1D"/>
+        <rect x="8" y="14" width="4" height="20" fill="#181B1D"/>
+        <path d="M10 14L30 6" stroke="#F5B400" stroke-width="3" stroke-linecap="round"/>
+        <circle cx="30" cy="6" r="2.4" fill="#F5B400"/>
+        <circle cx="12" cy="34" r="3" fill="#F5B400"/>
+        <circle cx="28" cy="34" r="3" fill="#F5B400"/>
+      </svg>
+      PH Heavy Duty <span>Logistics</span>
+    </a>
+    <nav class="nav-links">
+      <a href="#services">Equipment</a>
+      <a href="#industries">Industries</a>
+      <a href="#timeline">How It Works</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+    <div class="nav-cta">
+      <a class="nav-phone" href="tel:+2349049699259">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.4 0 .8-.2 1L6.6 10.8z" stroke="#fff" stroke-width="1.6"/></svg>
+        <span class="label">+234 904 969 9259</span>
+      </a>
+      <a href="#quote" class="btn btn-primary">Request a Quote</a>
+      <button class="nav-toggle" onclick="document.getElementById('mmenu').classList.add('open')" aria-label="Open menu">
+        <svg width="26" height="26" viewBox="0 0 24 24"><path d="M3 6h18M3 12h18M3 18h18" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div class="mobile-menu" id="mmenu">
+  <button class="mobile-close" onclick="document.getElementById('mmenu').classList.remove('open')" aria-label="Close menu">×</button>
+  <a href="#services" onclick="document.getElementById('mmenu').classList.remove('open')">Equipment</a>
+  <a href="#industries" onclick="document.getElementById('mmenu').classList.remove('open')">Industries</a>
+  <a href="#timeline" onclick="document.getElementById('mmenu').classList.remove('open')">How It Works</a>
+  <a href="#faq" onclick="document.getElementById('mmenu').classList.remove('open')">FAQ</a>
+  <a href="tel:+2349049699259">Call +234 904 969 9259</a>
+  <a href="#quote" class="btn btn-primary" style="margin-top:20px; justify-content:center;" onclick="document.getElementById('mmenu').classList.remove('open')">Request a Quote</a>
+</div>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-diagonal"></div>
+    <div class="wrap">
+      <div class="hero-content">
+        <span class="hero-tag fade-seq" style="animation-delay:.05s;">Crane &amp; forklift rental — Port Harcourt</span>
+        <h1 id="hero-headline">Heavy lifting and material handling for sites that can't afford downtime.</h1>
+        <p class="lede fade-seq" style="animation-delay:.55s;">Mobile cranes, forklifts and site-lifting equipment, mobilized and operated across Port Harcourt's construction, oil &amp; gas and port sites.</p>
+        <div class="hero-actions fade-seq" style="animation-delay:.68s;">
+          <a href="#quote" class="btn btn-primary">Request a Quote</a>
+          <a href="tel:+2349049699259" class="btn btn-outline">Call +234 904 969 9259</a>
+        </div>
+
+        <div class="eq-tabs fade-seq" style="animation-delay:.85s;">
+          <div class="eq-tab-buttons">
+            <button class="active" data-tab="cranes">Mobile cranes</button>
+            <button data-tab="forklifts">Forklifts</button>
+            <button data-tab="support">Site support</button>
+          </div>
+          <div class="eq-tab-panels">
+            <p class="active" data-panel="cranes">Structural lifts and precision positioning, with operated hire available for jobs that need a qualified hand on the controls.</p>
+            <p data-panel="forklifts">Warehouse and outdoor-rated units for loading bays, yards and depots, delivered ready to work.</p>
+            <p data-panel="support">Ongoing equipment support for the length of a project, with swap-outs arranged as your site progresses.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-scene wrap">
+      <svg viewBox="0 0 1120 260" width="100%" style="position:absolute; bottom:0; right:0; max-width:640px;" preserveAspectRatio="xMaxYMax meet">
+        <g>
+          <rect x="760" y="150" width="16" height="90" fill="#2E353A"/>
+          <g class="crane-arm">
+            <rect x="690" y="142" width="180" height="11" rx="2" fill="#F5B400"/>
+            <rect x="760" y="130" width="12" height="24" fill="#F5B400"/>
+          </g>
+          <line class="hook" x1="705" y1="146" x2="705" y2="186" stroke="#9CA4A9" stroke-width="2"/>
+          <rect class="hook" x="698" y="184" width="14" height="14" rx="2" fill="#31576A"/>
+          <circle class="beacon" cx="766" cy="126" r="3" fill="#F5B400"/>
+          <rect x="738" y="230" width="60" height="30" rx="3" fill="#232729" stroke="#4E7889" stroke-width="1.4"/>
+          <rect x="746" y="236" width="20" height="14" rx="1" fill="#7FA9BC"/>
+          <circle class="wheel" cx="750" cy="262" r="9" fill="#0F1214"/>
+          <circle class="wheel" cx="786" cy="262" r="9" fill="#0F1214"/>
+        </g>
+        <g>
+          <rect x="920" y="200" width="60" height="12" fill="#F5B400"/>
+          <rect x="920" y="140" width="6" height="72" fill="#F5B400"/>
+          <rect x="948" y="140" width="6" height="72" fill="#F5B400"/>
+          <rect x="972" y="196" width="70" height="46" rx="3" fill="#F5B400"/>
+          <rect x="982" y="180" width="42" height="24" rx="2" fill="#232729"/>
+          <circle class="wheel" cx="992" cy="248" r="12" fill="#0F1214"/>
+          <circle class="wheel" cx="1030" cy="248" r="12" fill="#0F1214"/>
+        </g>
+      </svg>
+    </div>
+
+    <div class="hero-scene-mobile wrap">
+      <svg viewBox="660 90 410 190" preserveAspectRatio="xMidYMid meet">
+        <rect x="660" y="90" width="410" height="190" fill="#1E3A46"/>
+        <g>
+          <rect x="760" y="150" width="16" height="90" fill="#2E353A"/>
+          <g class="crane-arm">
+            <rect x="690" y="142" width="180" height="11" rx="2" fill="#F5B400"/>
+            <rect x="760" y="130" width="12" height="24" fill="#F5B400"/>
+          </g>
+          <line class="hook" x1="705" y1="146" x2="705" y2="186" stroke="#9CA4A9" stroke-width="2"/>
+          <rect class="hook" x="698" y="184" width="14" height="14" rx="2" fill="#31576A"/>
+          <circle class="beacon" cx="766" cy="126" r="3" fill="#F5B400"/>
+          <rect x="738" y="230" width="60" height="30" rx="3" fill="#232729" stroke="#4E7889" stroke-width="1.4"/>
+          <rect x="746" y="236" width="20" height="14" rx="1" fill="#7FA9BC"/>
+          <circle class="wheel" cx="750" cy="262" r="9" fill="#0F1214"/>
+          <circle class="wheel" cx="786" cy="262" r="9" fill="#0F1214"/>
+        </g>
+        <g>
+          <rect x="920" y="200" width="60" height="12" fill="#F5B400"/>
+          <rect x="920" y="140" width="6" height="72" fill="#F5B400"/>
+          <rect x="948" y="140" width="6" height="72" fill="#F5B400"/>
+          <rect x="972" y="196" width="70" height="46" rx="3" fill="#F5B400"/>
+          <rect x="982" y="180" width="42" height="24" rx="2" fill="#232729"/>
+          <circle class="wheel" cx="992" cy="248" r="12" fill="#0F1214"/>
+          <circle class="wheel" cx="1030" cy="248" r="12" fill="#0F1214"/>
+        </g>
+      </svg>
+      <div class="hero-bottom-accent"></div>
+    </div>
+  </section>
+
+  <!-- TICKER -->
+  <div class="ticker">
+    <div class="ticker-track">
+      <span>Operated or self-drive hire</span><span>Equipment inspected before dispatch</span><span>Short &amp; long-term contracts</span><span>Mobilization across Port Harcourt</span>
+      <span>Operated or self-drive hire</span><span>Equipment inspected before dispatch</span><span>Short &amp; long-term contracts</span><span>Mobilization across Port Harcourt</span>
+    </div>
+  </div>
+
+  <!-- SERVICES: SPEC SHEET -->
+  <section id="services">
+    <div class="wrap">
+      <div class="sec-head" data-reveal>
+        <span class="sec-kicker">Equipment on hire</span>
+        <h2>Sized to the lift, the load, and the site</h2>
+        <p>A quick look at what we supply and where it's typically used — tell us your job and we'll confirm the right fit.</p>
+      </div>
+      <table class="spec-table">
+        <thead>
+          <tr><th>Equipment</th><th>Best for</th><th>Hire options</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              <div class="spec-eq">
+                <svg viewBox="0 0 48 48" fill="none"><rect x="20" y="10" width="4" height="26" fill="#F5B400"/><rect x="8" y="8" width="26" height="5" rx="1" fill="#181B1D"/><circle cx="10" cy="38" r="4" fill="#181B1D"/><circle cx="30" cy="38" r="4" fill="#181B1D"/><rect x="6" y="30" width="30" height="8" rx="2" fill="#181B1D"/></svg>
+                Mobile cranes
+              </div>
+            </td>
+            <td><p>Structural lifts, steel erection and precision placement on construction and industrial sites.</p></td>
+            <td><span class="tag">Operated hire</span><span class="tag">Day or project-length</span></td>
+          </tr>
+          <tr>
+            <td>
+              <div class="spec-eq">
+                <svg viewBox="0 0 48 48" fill="none"><rect x="6" y="26" width="26" height="4" fill="#31576A"/><rect x="6" y="10" width="2" height="24" fill="#31576A"/><rect x="14" y="10" width="2" height="24" fill="#31576A"/><rect x="30" y="24" width="12" height="10" rx="2" fill="#31576A"/><circle cx="14" cy="38" r="4" fill="#181B1D"/><circle cx="34" cy="38" r="4" fill="#181B1D"/></svg>
+                Forklifts
+              </div>
+            </td>
+            <td><p>Material handling for warehouses, yards and loading bays, indoors or out.</p></td>
+            <td><span class="tag">Self-drive</span><span class="tag">Standing hire</span></td>
+          </tr>
+          <tr>
+            <td>
+              <div class="spec-eq">
+                <svg viewBox="0 0 48 48" fill="none"><rect x="6" y="20" width="30" height="16" rx="2" fill="#181B1D"/><path d="M10 20L30 8" stroke="#F5B400" stroke-width="3" stroke-linecap="round"/><circle cx="30" cy="8" r="2.4" fill="#F5B400"/><circle cx="12" cy="36" r="3" fill="#F5B400"/></svg>
+                Site support equipment
+              </div>
+            </td>
+            <td><p>Additional lifting and handling equipment deployed as a project's needs change.</p></td>
+            <td><span class="tag">Scheduled swap-outs</span><span class="tag">Multi-unit deployment</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- INDUSTRIES: SKEWED BAND -->
+  <section class="industries" id="industries">
+    <div class="wrap">
+      <div class="sec-head light" data-reveal>
+        <span class="sec-kicker">Who we work with</span>
+        <h2>Built for Port Harcourt's heaviest sectors</h2>
+      </div>
+      <div class="ind-rows">
+        <div class="ind-row">
+          <div class="ind-chip">
+            <svg width="30" height="30" viewBox="0 0 24 24" fill="none"><path d="M3 21h18M6 21V9l6-4 6 4v12M10 21v-6h4v6" stroke="#F5B400" stroke-width="1.6" stroke-linejoin="round"/></svg>
+            <div><h4>Construction &amp; civil works</h4><p>Lifting for build sites of any scale.</p></div>
+          </div>
+          <div class="ind-chip">
+            <svg width="30" height="30" viewBox="0 0 24 24" fill="none"><path d="M4 20V9l4-3 4 3v11M12 20V6l4-3 4 3v14" stroke="#fff" stroke-width="1.6" stroke-linejoin="round"/></svg>
+            <div><h4>Oil &amp; gas facilities</h4><p>Equipment for terminal, plant and yard operations.</p></div>
+          </div>
+        </div>
+        <div class="ind-row">
+          <div class="ind-chip">
+            <svg width="30" height="30" viewBox="0 0 24 24" fill="none"><path d="M3 17h18M5 17V9l7-5 7 5v8" stroke="#F5B400" stroke-width="1.6" stroke-linejoin="round"/><circle cx="9" cy="20" r="1.4" fill="#fff"/><circle cx="15" cy="20" r="1.4" fill="#fff"/></svg>
+            <div><h4>Ports &amp; terminals</h4><p>Forklift and crane support for cargo handling.</p></div>
+          </div>
+          <div class="ind-chip">
+            <svg width="30" height="30" viewBox="0 0 24 24" fill="none"><rect x="3" y="7" width="18" height="13" rx="1.5" stroke="#fff" stroke-width="1.6"/><path d="M8 7V5a2 2 0 012-2h4a2 2 0 012 2v2" stroke="#fff" stroke-width="1.6"/></svg>
+            <div><h4>Warehousing &amp; logistics</h4><p>Forklift hire for loading bays and depots.</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TIMELINE: WHY + PROCESS COMBINED -->
+  <section id="timeline">
+    <div class="wrap">
+      <div class="sec-head" data-reveal>
+        <span class="sec-kicker">How it works</span>
+        <h2>From enquiry to pickup, one point of contact</h2>
+      </div>
+      <div class="timeline">
+        <div class="timeline-line"></div>
+        <div class="tl-item" data-reveal>
+          <div class="tl-num">01</div>
+          <div class="tl-body"><span class="tl-phase">Enquiry</span><h4>You tell us the job</h4><p>Location, load, site access and how long you'll need the equipment.</p></div>
+        </div>
+        <div class="tl-item" data-reveal>
+          <div class="tl-num">02</div>
+          <div class="tl-body"><span class="tl-phase">Quote</span><h4>We size the equipment to your job</h4><p>A straight quote by phone, WhatsApp or email, with crane or forklift specification matched to your load.</p></div>
+        </div>
+        <div class="tl-item" data-reveal>
+          <div class="tl-num">03</div>
+          <div class="tl-body"><span class="tl-phase">Mobilization</span><h4>Equipment arrives ready to work</h4><p>Delivered, positioned and inspected on site before you need it — with an operator if you've asked for one.</p></div>
+        </div>
+        <div class="tl-item" data-reveal>
+          <div class="tl-num">04</div>
+          <div class="tl-body"><span class="tl-phase">Support</span><h4>We stay reachable during hire</h4><p>One team handling swap-outs or extensions, so you're not chasing a call centre.</p></div>
+        </div>
+        <div class="tl-item" data-reveal>
+          <div class="tl-num">05</div>
+          <div class="tl-body"><span class="tl-phase">Pickup</span><h4>Clean handover at the end</h4><p>Collection arranged on the date you agree with us once the job is done.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALLERY: ASYMMETRIC -->
+  <section class="gallery">
+    <div class="wrap">
+      <div class="sec-head light" data-reveal>
+        <span class="sec-kicker">Equipment we work with</span>
+        <h2>The machines behind the job</h2>
+        <p>Hover to take a closer look at the kind of equipment we supply.</p>
+      </div>
+      <div class="gallery-layout">
+        <div class="gallery-card featured">
+          <div class="photo-card">
+            <svg viewBox="0 0 500 420" width="100%" height="100%" preserveAspectRatio="xMidYMid slice">
+              <rect width="500" height="420" fill="#12484F"/>
+              <rect x="0" y="300" width="500" height="120" fill="#0B3236"/>
+              <rect x="90" y="140" width="14" height="160" fill="#F5B400"/>
+              <rect x="40" y="126" width="170" height="12" fill="#F5B400"/>
+              <line x1="60" y1="138" x2="60" y2="200" stroke="#DCE7EC" stroke-width="2.5"/>
+              <rect x="150" y="230" width="90" height="60" rx="3" fill="#0B3236" stroke="#4E7889" stroke-width="1.6"/>
+              <rect x="164" y="242" width="30" height="20" rx="1" fill="#7FA9BC"/>
+              <circle cx="100" cy="300" r="16" fill="#0B3236"/>
+              <circle cx="190" cy="300" r="16" fill="#0B3236"/>
+            </svg>
+          </div>
+          <div class="cap"><h4>Mobile cranes</h4><p>For structural lifts and precision positioning on site.</p></div>
+        </div>
+        <div class="gallery-stack">
+          <div class="gallery-card">
+            <div class="photo-card">
+              <svg viewBox="0 0 400 200" width="100%">
+                <rect width="400" height="200" fill="#2E4A12"/>
+                <rect x="0" y="150" width="400" height="50" fill="#233A0D"/>
+                <rect x="150" y="95" width="60" height="10" fill="#F5B400"/>
+                <rect x="150" y="50" width="6" height="55" fill="#F5B400"/>
+                <rect x="180" y="50" width="6" height="55" fill="#F5B400"/>
+                <rect x="206" y="102" width="70" height="42" rx="3" fill="#F5B400"/>
+                <rect x="216" y="88" width="42" height="22" rx="2" fill="#233A0D"/>
+                <circle cx="226" cy="146" r="10" fill="#12220A"/>
+                <circle cx="264" cy="146" r="10" fill="#12220A"/>
+              </svg>
+            </div>
+            <div class="cap"><h4>Forklifts</h4><p>For warehouse loading, yard work and material moves.</p></div>
+          </div>
+          <div class="gallery-card">
+            <div class="photo-card">
+              <svg viewBox="0 0 400 200" width="100%">
+                <rect width="400" height="200" fill="#1B2E38"/>
+                <rect x="0" y="150" width="400" height="50" fill="#12222A"/>
+                <rect x="90" y="110" width="220" height="36" rx="4" fill="#12222A" stroke="#4E7889" stroke-width="1.6"/>
+                <rect x="110" y="90" width="70" height="26" rx="2" fill="#4E7889"/>
+                <rect x="118" y="96" width="50" height="14" rx="1" fill="#DCE7EC"/>
+                <circle cx="130" cy="150" r="10" fill="#0A1519"/>
+                <circle cx="270" cy="150" r="10" fill="#0A1519"/>
+              </svg>
+            </div>
+            <div class="cap"><h4>Site support units</h4><p>Deployed as your project's needs change.</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COVERAGE -->
+  <section class="coverage" id="coverage">
+    <div class="coverage-inner">
+      <div class="wrap">
+        <div data-reveal>
+          <span class="sec-kicker" style="color:#F5B400;">Where we operate</span>
+          <h2>Serving construction, industrial and port sites across Port Harcourt</h2>
+          <p>Tell us your site location when you request a quote and we'll confirm mobilization timing.</p>
+          <div class="coverage-tags">
+            <span>Construction sites</span><span>Oil &amp; gas facilities</span><span>Ports &amp; terminals</span>
+            <span>Warehouses &amp; depots</span><span>Short-term hire</span><span>Long-term site contracts</span>
+          </div>
+        </div>
+        <div data-reveal style="transition-delay:.12s;">
+          <svg viewBox="0 0 500 340" width="100%">
+            <rect x="0" y="0" width="500" height="340" rx="6" fill="#1E3A46"/>
+            <g opacity="0.45" stroke="#4E7889" stroke-width="1">
+              <line x1="0" y1="68" x2="500" y2="68"/><line x1="0" y1="136" x2="500" y2="136"/>
+              <line x1="0" y1="204" x2="500" y2="204"/><line x1="0" y1="272" x2="500" y2="272"/>
+              <line x1="100" y1="0" x2="100" y2="340"/><line x1="200" y1="0" x2="200" y2="340"/>
+              <line x1="300" y1="0" x2="300" y2="340"/><line x1="400" y1="0" x2="400" y2="340"/>
+            </g>
+            <circle class="map-dot" cx="150" cy="120" r="7" fill="#F5B400" style="animation-delay:0s;"/>
+            <circle class="map-dot" cx="260" cy="90" r="7" fill="#F5B400" style="animation-delay:.4s;"/>
+            <circle class="map-dot" cx="320" cy="200" r="7" fill="#F5B400" style="animation-delay:.8s;"/>
+            <circle class="map-dot" cx="200" cy="240" r="7" fill="#F5B400" style="animation-delay:1.2s;"/>
+            <circle class="map-dot" cx="380" cy="140" r="7" fill="#F5B400" style="animation-delay:1.6s;"/>
+            <text x="250" y="320" fill="#DCE7EC" font-family="Inter, sans-serif" font-size="13" text-anchor="middle">Mobilization points confirmed at time of booking</text>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ: TWO COLUMN -->
+  <section id="faq">
+    <div class="wrap">
+      <div class="faq-layout">
+        <div class="faq-side" data-reveal>
+          <span class="sec-kicker">Common questions</span>
+          <h2 style="font-size:clamp(24px,3vw,32px);">Still deciding?</h2>
+          <p>If your question isn't answered here, send us your job details directly and we'll get back to you.</p>
+          <a href="#quote" class="btn btn-outline-dark">Request a Quote</a>
+        </div>
+        <div class="faq-list reveal-group" id="faqGroup">
+          <div class="faq-item rv">
+            <button class="faq-q">Do you supply an operator with the crane or forklift?<span class="plus">+</span></button>
+            <div class="faq-a"><p>Yes, operated hire is available, or you can take the equipment on a self-drive basis if your own team is set up to run it. Let us know which you'd prefer when you request a quote.</p></div>
+          </div>
+          <div class="faq-item rv">
+            <button class="faq-q">How quickly can equipment get to my site?<span class="plus">+</span></button>
+            <div class="faq-a"><p>Mobilization time depends on your location and the equipment required. Share your site details and we'll confirm timing directly.</p></div>
+          </div>
+          <div class="faq-item rv">
+            <button class="faq-q">What's the minimum hire period?<span class="plus">+</span></button>
+            <div class="faq-a"><p>It depends on whether it's a single lift, a short job, or an ongoing site contract. Tell us your dates and we'll confirm what works.</p></div>
+          </div>
+          <div class="faq-item rv">
+            <button class="faq-q">How do I get a price?<span class="plus">+</span></button>
+            <div class="faq-a"><p>Send us your location, the equipment you think you need and your timeline through WhatsApp, email or a call, and we'll confirm pricing directly.</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section class="cta-final" id="quote">
+    <div class="wrap" data-reveal>
+      <div>
+        <h2>Ready to get equipment on your site?</h2>
+        <p>Call, WhatsApp or send us your details — we'll come back to you with a quote.</p>
+      </div>
+      <div class="cta-actions">
+        <a href="tel:+2349049699259" class="btn" style="background:var(--ink); color:#fff;">Call +234 904 969 9259</a>
+        <a href="https://wa.me/2349049699259" target="_blank" rel="noopener" class="btn btn-outline-dark">WhatsApp Us</a>
+        <a href="mailto:info@heavydutyPH.com" class="btn btn-outline-dark">Email Us</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-logo">Port Harcourt Heavy Duty Logistics</div>
+        <p style="max-width:38ch; font-size:14.5px;">Mobile crane and forklift rental for construction, oil &amp; gas and port operations across Port Harcourt.</p>
+      </div>
+      <div>
+        <h5>Company</h5>
+        <ul>
+          <li><a href="#services">Equipment</a></li>
+          <li><a href="#industries">Industries</a></li>
+          <li><a href="#timeline">How It Works</a></li>
+          <li><a href="#faq">FAQ</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Contact</h5>
+        <ul>
+          <li><a href="tel:+2349049699259">+234 904 969 9259</a></li>
+          <li><a href="mailto:info@heavydutyPH.com">info@heavydutyPH.com</a></li>
+          <li><a href="https://wa.me/2349049699259" target="_blank" rel="noopener">WhatsApp</a></li>
+          <li>Port Harcourt, Nigeria</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Port Harcourt Heavy Duty Logistics. All rights reserved.</span>
+      <span>Port Harcourt, Nigeria</span>
+    </div>
+  </div>
+</footer>
+
+<a class="wa-float" href="https://wa.me/2349049699259" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+  <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M17.5 14.4c-.3-.1-1.7-.8-2-.9-.3-.1-.5-.1-.6.1-.2.3-.7.9-.9 1.1-.2.2-.3.2-.6.1-.3-.2-1.2-.5-2.3-1.5-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5.2-.2.2-.3.3-.5.1-.2 0-.4 0-.5C10.2 9 9.7 7.8 9.5 7.3c-.2-.4-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.3.3-1 1-1 2.4s1 2.8 1.2 3c.1.2 2 3.1 4.9 4.3.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.5-.1 1.7-.7 1.9-1.4.2-.6.2-1.2.2-1.3-.1-.1-.3-.2-.6-.3z" fill="#fff"/></svg>
+</a>
+
+<script>
+  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* sticky header background on scroll */
+  var header = document.getElementById('siteHeader');
+  window.addEventListener('scroll', function(){
+    if(window.scrollY > 40){ header.classList.add('scrolled'); }
+    else{ header.classList.remove('scrolled'); }
+  });
+
+  /* hero headline word reveal */
+  (function(){
+    var el = document.getElementById('hero-headline');
+    if(!el) return;
+    var text = el.textContent.trim();
+    var words = text.split(/\s+/);
+    el.textContent = '';
+    words.forEach(function(word, i){
+      var mask = document.createElement('span');
+      mask.className = 'word-mask';
+      var inner = document.createElement('span');
+      inner.className = 'word-inner';
+      inner.textContent = word;
+      if(!reduceMotion){ inner.style.animationDelay = (0.06 * i) + 's'; }
+      mask.appendChild(inner);
+      el.appendChild(mask);
+      el.appendChild(document.createTextNode(' '));
+    });
+    requestAnimationFrame(function(){ el.classList.add('anim-run'); });
+  })();
+
+  /* equipment tab switcher */
+  document.querySelectorAll('.eq-tab-buttons button').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      document.querySelectorAll('.eq-tab-buttons button').forEach(function(b){ b.classList.remove('active'); });
+      document.querySelectorAll('.eq-tab-panels p').forEach(function(p){ p.classList.remove('active'); });
+      btn.classList.add('active');
+      document.querySelector('.eq-tab-panels p[data-panel="'+btn.dataset.tab+'"]').classList.add('active');
+    });
+  });
+
+  /* scroll reveals */
+  var revealEls = document.querySelectorAll('[data-reveal], .reveal-group');
+  if('IntersectionObserver' in window && !reduceMotion){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if(entry.isIntersecting){
+          entry.target.classList.add('in-view');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15, rootMargin: '0px 0px -60px 0px' });
+    revealEls.forEach(function(el){ io.observe(el); });
+  } else {
+    revealEls.forEach(function(el){ el.classList.add('in-view'); });
+  }
+
+  /* faq accordion */
+  document.querySelectorAll('.faq-q').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var item = btn.closest('.faq-item');
+      var ans = item.querySelector('.faq-a');
+      var wasOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item.open').forEach(function(el){
+        el.classList.remove('open');
+        el.querySelector('.faq-a').style.maxHeight = null;
+      });
+      if(!wasOpen){
+        item.classList.add('open');
+        ans.style.maxHeight = ans.scrollHeight + 'px';
+      }
+    });
+  });
+</script>
+
+</body>
+</html>
