@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Solowyze Drill Tech — Drilling deeper, delivering solutions</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0B1220;
+    --bedrock:#16212F;
+    --ochre:#D89B3C;
+    --ochre-dim:#B87F2A;
+    --clay:#A85C32;
+    --aquifer:#8FC7CE;
+    --stone:#ECEEE8;
+    --line: rgba(236,238,232,0.14);
+    --line-dark: rgba(11,18,32,0.12);
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{font-family:'Inter',sans-serif;background:var(--stone);color:var(--ink);-webkit-font-smoothing:antialiased;overflow-x:hidden;}
+  h1,h2,h3{font-family:'Fraunces',serif;font-weight:600;letter-spacing:-0.01em;}
+  a{color:inherit;text-decoration:none;}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 40px;position:relative;}
+  @media(max-width:640px){.wrap{padding:0 22px;}}
+
+  /* ---------- NAV ---------- */
+  nav{position:fixed;top:0;left:0;right:0;z-index:80;display:flex;align-items:center;justify-content:space-between;padding:22px 40px;color:var(--stone);}
+  @media(max-width:640px){nav{padding:18px 22px;}}
+  .brand{display:flex;align-items:center;gap:10px;}
+  .brand svg{width:26px;height:26px;flex-shrink:0;}
+  .brand-text{line-height:1.05;}
+  .brand-text .name{font-family:'Fraunces',serif;font-weight:600;font-size:16.5px;}
+  .brand-text .sub{font-size:10px;color:var(--ochre);letter-spacing:0.06em;}
+  .nav-links{display:flex;align-items:center;gap:34px;font-size:14px;}
+  .nav-links a{opacity:0.82;transition:opacity .2s;}
+  .nav-links a:hover{opacity:1;}
+  .nav-call{border:1px solid rgba(236,238,232,0.35);padding:9px 18px;border-radius:2px;font-size:13.5px;display:flex;align-items:center;gap:8px;transition:border-color .2s;}
+  .nav-call:hover{border-color:var(--ochre);}
+  @media(max-width:860px){.nav-links a.hide-sm{display:none;}}
+  @media(max-width:560px){.nav-call span{display:none;} .nav-call{padding:9px 12px;}}
+
+  /* ---------- HERO ---------- */
+  .hero{position:relative;background:linear-gradient(180deg,#081019 0%,#0E1B28 45%,#123340 100%);color:var(--stone);padding-top:150px;overflow:hidden;isolation:isolate;}
+  #water-canvas{position:absolute;inset:0;width:100%;height:100%;z-index:0;}
+  .hero-grid{position:relative;z-index:2;display:grid;grid-template-columns:1.05fr 0.8fr;gap:40px;align-items:center;}
+  @media(max-width:900px){.hero-grid{grid-template-columns:1fr;}}
+  .hero-copy{padding-bottom:60px;}
+  .eyebrow{font-size:13px;color:var(--aquifer);margin-bottom:22px;display:flex;align-items:center;gap:10px;}
+  .eyebrow .rule{width:28px;height:1px;background:var(--aquifer);opacity:0.6;}
+  .hero h1{font-size:clamp(34px,4.6vw,58px);line-height:1.08;max-width:15ch;font-weight:600;}
+  .hero h1 em{font-style:italic;font-weight:500;color:var(--ochre);}
+  .hero p.lede{margin-top:24px;font-size:17px;line-height:1.6;color:rgba(236,238,232,0.72);max-width:46ch;}
+  .hero-ctas{display:flex;gap:16px;margin-top:38px;flex-wrap:wrap;}
+
+  /* liquid buttons */
+  .btn{position:relative;overflow:hidden;isolation:isolate;padding:14px 26px;font-size:14.5px;font-weight:600;border-radius:2px;display:inline-block;}
+  .btn span{position:relative;z-index:2;}
+  .btn-primary{background:var(--ochre-dim);color:var(--ink);}
+  .btn-primary .liquid{position:absolute;left:-10%;right:-10%;bottom:0;height:0%;background:#F0B863;transition:height .5s cubic-bezier(.4,0,.2,1);z-index:1;}
+  .btn-primary .liquid svg{position:absolute;top:-11px;left:0;width:200%;height:14px;animation:waveSlide 2.4s linear infinite;}
+  .btn-primary:hover .liquid{height:100%;}
+  .btn-ghost{border:1px solid rgba(236,238,232,0.3);color:var(--stone);}
+  .btn-ghost .liquid{position:absolute;left:-10%;right:-10%;bottom:0;height:0%;background:rgba(143,199,206,0.9);transition:height .5s cubic-bezier(.4,0,.2,1);z-index:1;}
+  .btn-ghost .liquid svg{position:absolute;top:-11px;left:0;width:200%;height:14px;animation:waveSlide 2.4s linear infinite;}
+  .btn-ghost:hover .liquid{height:100%;}
+  .btn-ghost:hover{color:var(--ink);border-color:transparent;}
+  @keyframes waveSlide{from{transform:translateX(0);}to{transform:translateX(-50%);}}
+
+  .hero-foot{position:relative;z-index:2;display:flex;gap:34px;margin-top:50px;flex-wrap:wrap;padding-top:26px;border-top:1px solid var(--line);font-size:12.5px;color:rgba(236,238,232,0.55);}
+  .hero-foot b{color:var(--stone);font-weight:600;}
+
+  /* ---------- CORE SAMPLE GRAPHIC ---------- */
+  .core{position:relative;z-index:2;height:560px;display:flex;justify-content:center;}
+  .core-col{position:relative;width:220px;height:100%;border-left:1px solid var(--line);border-right:1px solid var(--line);border-radius:6px;overflow:hidden;
+    background:linear-gradient(180deg,#3B4A3A 0%,#3B4A3A 8%,#5B4530 8%,#5B4530 30%,#6B5138 30%,#6B5138 52%,#55524C 52%,#55524C 74%,#1D5964 74%,#124049 100%);
+    box-shadow:0 30px 60px -20px rgba(0,0,0,0.5);
+  }
+  .core-tex{position:absolute;inset:0;opacity:0.35;mix-blend-mode:multiply;}
+  .core::after{content:"";position:absolute;inset:0;background-image:repeating-linear-gradient(180deg, rgba(0,0,0,0.08) 0px, rgba(0,0,0,0.08) 1px, transparent 1px, transparent 26px);pointer-events:none;}
+  .bit{position:absolute;left:50%;top:-40px;width:3px;height:40px;background:linear-gradient(180deg, var(--ochre), var(--ochre-dim));transform:translateX(-50%);animation:drill 2.8s cubic-bezier(.65,0,.35,1) 0.5s forwards;z-index:3;}
+  .bit::after{content:"";position:absolute;bottom:-10px;left:50%;transform:translateX(-50%);width:0;height:0;border-left:6px solid transparent;border-right:6px solid transparent;border-top:12px solid var(--ochre);}
+  @keyframes drill{0%{height:40px;top:-40px;}100%{height:640px;top:-40px;}}
+  .tick{position:absolute;left:calc(100% + 14px);white-space:nowrap;font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:rgba(236,238,232,0.85);display:flex;align-items:baseline;gap:10px;opacity:0;animation:reveal .5s ease forwards;z-index:2;}
+  .tick::before{content:"";position:absolute;left:-14px;top:50%;width:10px;height:1px;background:rgba(236,238,232,0.4);}
+  .tick .m{color:var(--ochre);font-weight:500;}
+  .tick.hit .m{color:var(--aquifer);}
+  .tick.hit{color:var(--aquifer);}
+  @keyframes reveal{to{opacity:1;}}
+  .t1{top:6%;animation-delay:0.7s;}
+  .t2{top:26%;animation-delay:1.2s;}
+  .t3{top:48%;animation-delay:1.7s;}
+  .t4{top:70%;animation-delay:2.2s;}
+  .t5{top:90%;animation-delay:2.8s;}
+
+  /* ambient bubbles rising in the aquifer band */
+  .bubble{position:absolute;left:50%;bottom:6%;width:4px;height:4px;border-radius:50%;background:rgba(143,199,206,0.75);opacity:0;animation:rise 4.5s ease-in infinite;}
+  @keyframes rise{
+    0%{opacity:0;transform:translate(-50%,0) scale(0.6);}
+    10%{opacity:0.8;}
+    90%{opacity:0.3;}
+    100%{opacity:0;transform:translate(-50%,-120px) scale(1);}
+  }
+  @media(max-width:900px){.core{height:420px;}.core-col{width:150px;}.tick{font-size:10px;}@keyframes drill{100%{height:480px;top:-40px;}}}
+  @media(max-width:520px){.core{display:none;}}
+  @media (prefers-reduced-motion: reduce){
+    .bit{animation:none;height:640px;}
+    .tick{animation:none;opacity:1;}
+    .bubble{animation:none;display:none;}
+  }
+
+  /* ---------- WAVE DIVIDERS ---------- */
+  .wave-divider{position:relative;line-height:0;overflow:hidden;height:90px;z-index:3;}
+  .wave-divider svg{position:absolute;bottom:0;left:0;width:200%;height:100%;animation:waveScroll 18s linear infinite;}
+  .wave-divider .l2{opacity:0.55;animation-duration:26s;animation-direction:reverse;}
+  @keyframes waveScroll{from{transform:translateX(0);}to{transform:translateX(-50%);}}
+  @media (prefers-reduced-motion: reduce){.wave-divider svg{animation:none;}}
+
+  /* ---------- SECTION LABELS ---------- */
+  .section{padding:100px 0;position:relative;}
+  .section-head{display:grid;grid-template-columns:1fr 1.6fr;gap:40px;margin-bottom:64px;align-items:end;}
+  @media(max-width:760px){.section-head{grid-template-columns:1fr;gap:18px;}}
+  .kicker{font-size:13px;color:var(--clay);font-weight:600;}
+  .section-head h2{font-size:clamp(26px,3vw,36px);max-width:16ch;}
+  .section-head .desc{font-size:15.5px;line-height:1.6;color:#4B5560;max-width:44ch;}
+
+  /* ---------- STATS STRIP ---------- */
+  .stats{background:var(--stone);padding:64px 0 0;}
+  .stats-row{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--line-dark);}
+  @media(max-width:640px){.stats-row{grid-template-columns:1fr;}}
+  .stat{padding:34px 30px;border-right:1px solid var(--line-dark);}
+  .stat:last-child{border-right:none;}
+  @media(max-width:640px){.stat{border-right:none;border-bottom:1px solid var(--line-dark);}}
+  .stat .num{font-family:'Fraunces',serif;font-size:44px;font-weight:600;color:var(--clay);}
+  .stat .label{font-size:13.5px;color:#4B5560;margin-top:6px;}
+
+  /* ---------- SERVICES ---------- */
+  .services{background:var(--stone);}
+  .svc-list{border-top:1px solid var(--line-dark);}
+  .svc-row{display:grid;grid-template-columns:60px 1fr 1.4fr;gap:30px;padding:34px 0;border-bottom:1px solid var(--line-dark);align-items:flex-start;transition:background .25s;}
+  .svc-row:hover{background:rgba(168,92,50,0.04);}
+  @media(max-width:760px){.svc-row{grid-template-columns:40px 1fr;}.svc-row .svc-desc{grid-column:2/3;}}
+  .svc-num{font-family:'IBM Plex Mono',monospace;font-size:13px;color:var(--clay);padding-top:6px;}
+  .svc-icon{width:34px;height:34px;color:var(--clay);}
+  .svc-name{font-family:'Fraunces',serif;font-size:22px;font-weight:600;}
+  .svc-desc{font-size:15px;line-height:1.6;color:#4B5560;max-width:46ch;}
+
+  /* ---------- PROCESS ---------- */
+  .process{background:var(--bedrock);color:var(--stone);}
+  .process .kicker{color:var(--aquifer);}
+  .process .desc{color:rgba(236,238,232,0.62);}
+  .shaft{position:relative;padding-left:46px;}
+  .shaft::before{content:"";position:absolute;left:11px;top:6px;bottom:6px;width:2px;background:linear-gradient(180deg,var(--ochre),var(--aquifer));}
+  .step{position:relative;padding-bottom:52px;}
+  .step:last-child{padding-bottom:0;}
+  .step::before{content:"";position:absolute;left:-46px;top:2px;width:24px;height:24px;border-radius:50%;background:var(--bedrock);border:2px solid var(--ochre);}
+  .step:last-child::before{border-color:var(--aquifer);}
+  .step .depth{font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--ochre);margin-bottom:6px;}
+  .step:last-child .depth{color:var(--aquifer);}
+  .step h3{font-size:20px;font-weight:600;margin-bottom:8px;}
+  .step p{font-size:14.5px;line-height:1.6;color:rgba(236,238,232,0.62);max-width:52ch;}
+
+  /* ---------- WHY US ---------- */
+  .why{background:var(--stone);}
+  .why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line-dark);border:1px solid var(--line-dark);}
+  @media(max-width:760px){.why-grid{grid-template-columns:1fr;}}
+  .why-card{background:var(--stone);padding:38px 34px;transition:background .25s;}
+  .why-card:hover{background:#fff;}
+  .why-card svg{width:28px;height:28px;color:var(--clay);margin-bottom:20px;}
+  .why-card h3{font-size:18.5px;font-weight:600;margin-bottom:10px;}
+  .why-card p{font-size:14.5px;line-height:1.6;color:#4B5560;}
+
+  /* ---------- CONTACT / CLOSE ---------- */
+  .close{background:linear-gradient(180deg,#0B1220 0%,#12202F 100%);color:var(--stone);}
+  .close-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:60px;}
+  @media(max-width:820px){.close-grid{grid-template-columns:1fr;gap:44px;}}
+  .close h2{font-size:clamp(28px,3.6vw,42px);max-width:14ch;line-height:1.12;}
+  .close .lede{margin-top:20px;font-size:16px;color:rgba(236,238,232,0.65);max-width:42ch;line-height:1.6;}
+  .close-ctas{margin-top:34px;display:flex;gap:16px;flex-wrap:wrap;}
+  .info-block{border-top:1px solid var(--line);padding-top:26px;margin-top:26px;}
+  .info-row{display:flex;justify-content:space-between;padding:14px 0;border-bottom:1px solid var(--line);font-size:14.5px;}
+  .info-row .k{color:rgba(236,238,232,0.5);}
+  .info-row .v{text-align:right;font-weight:500;}
+  footer{padding:28px 0;border-top:1px solid var(--line);}
+  .foot-row{display:flex;justify-content:space-between;font-size:12.5px;color:rgba(236,238,232,0.4);flex-wrap:wrap;gap:10px;}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="brand">
+    <svg viewBox="0 0 24 24" fill="none"><path d="M12 2C12 2 6 10 6 14.5C6 18.09 8.69 21 12 21C15.31 21 18 18.09 18 14.5C18 10 12 2 12 2Z" stroke="#D89B3C" stroke-width="1.5"/><path d="M9 15C9 16.66 10.34 18 12 18" stroke="#8FC7CE" stroke-width="1.3" stroke-linecap="round"/></svg>
+    <div class="brand-text"><div class="name">Solowyze Drill Tech</div><div class="sub">RC 7943837 · Abuja</div></div>
+  </div>
+  <div class="nav-links">
+    <a href="#services" class="hide-sm">Services</a>
+    <a href="#process" class="hide-sm">Process</a>
+    <a href="#contact" class="hide-sm">Contact</a>
+    <a href="#contact" class="nav-call">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+      <span>0809 323 2222</span>
+    </a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="hero">
+  <canvas id="water-canvas"></canvas>
+  <div class="wrap hero-grid">
+    <div class="hero-copy">
+      <div class="eyebrow"><span class="rule"></span>Underground water survey · borehole drilling &amp; installation</div>
+      <h1>We don't guess where the water is. We drill <em>down until we know.</em></h1>
+      <p class="lede">Solowyze Drill Tech surveys the ground before it touches it — then drills, installs and maintains boreholes across Abuja with a crew that treats every metre underground like it matters.</p>
+      <div class="hero-ctas">
+        <a href="#contact" class="btn btn-primary"><span class="liquid"><svg viewBox="0 0 200 14" preserveAspectRatio="none"><path d="M0 8 Q 25 0 50 8 T 100 8 T 150 8 T 200 8 V14 H0 Z" fill="#F0B863"/></svg></span><span>Request a site survey</span></a>
+        <a href="tel:08093232222" class="btn btn-ghost"><span class="liquid"><svg viewBox="0 0 200 14" preserveAspectRatio="none"><path d="M0 8 Q 25 0 50 8 T 100 8 T 150 8 T 200 8 V14 H0 Z" fill="#8FC7CE"/></svg></span><span>Call 0809 323 2222</span></a>
+      </div>
+      <div class="hero-foot">
+        <div><b>Registered</b> RC 7943837</div>
+        <div><b>Based in</b> Lugbe, Abuja</div>
+        <div><b>Services</b> Survey · Drilling · Installation · Maintenance</div>
+      </div>
+    </div>
+    <div class="core" id="core">
+      <div class="core-col" id="core-col">
+        <svg class="core-tex" viewBox="0 0 220 560" width="100%" height="100%" preserveAspectRatio="none">
+          <filter id="grain"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" stitchTiles="stitch"/><feColorMatrix type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.5 0"/></filter>
+          <rect width="220" height="560" filter="url(#grain)"/>
+        </svg>
+        <div class="bit"></div>
+        <div class="tick t1"><span class="m">0m</span> surface survey</div>
+        <div class="tick t2"><span class="m">14m</span> topsoil</div>
+        <div class="tick t3"><span class="m">48m</span> clay layer</div>
+        <div class="tick t4"><span class="m">92m</span> weathered rock</div>
+        <div class="tick t5 hit"><span class="m">140m</span> aquifer reached</div>
+        <div class="bubble" style="left:38%;animation-delay:3.0s;"></div>
+        <div class="bubble" style="left:55%;animation-delay:3.6s;"></div>
+        <div class="bubble" style="left:47%;animation-delay:4.3s;"></div>
+        <div class="bubble" style="left:62%;animation-delay:3.2s;"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="wave-divider" style="background:var(--stone);">
+  <svg class="l1" viewBox="0 0 2400 90" preserveAspectRatio="none"><path d="M0 40 Q 200 0 400 40 T 800 40 T 1200 40 T 1600 40 T 2000 40 T 2400 40 V90 H0 Z" fill="#123340"/></svg>
+  <svg class="l2" viewBox="0 0 2400 90" preserveAspectRatio="none"><path d="M0 55 Q 200 15 400 55 T 800 55 T 1200 55 T 1600 55 T 2000 55 T 2400 55 V90 H0 Z" fill="#0B1220"/></svg>
+</div>
+
+<!-- STATS -->
+<section class="stats">
+  <div class="wrap">
+    <div class="stats-row">
+      <div class="stat"><div class="num"><span class="count" data-target="4">0</span></div><div class="label">services under one crew — survey to maintenance</div></div>
+      <div class="stat"><div class="num"><span class="count" data-target="5">0</span></div><div class="label">stages from first site visit to handover</div></div>
+      <div class="stat"><div class="num"><span class="count" data-target="1">0</span></div><div class="label">contractor responsible, start to finish</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="section services" id="services">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="kicker">What we do</div>
+      <div><h2>Four stages, one crew, start to finish.</h2><p class="desc">No handing the job between contractors. Solowyze covers the ground survey, the drilling, the installation and the years of upkeep after — under one roof.</p></div>
+    </div>
+    <div class="svc-list">
+      <div class="svc-row"><div class="svc-num">01</div><div><svg class="svc-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M12 2s7 8 7 13a7 7 0 0 1-14 0c0-5 7-13 7-13Z"/></svg><div class="svc-name">Underground water survey</div></div><div class="svc-desc">Geophysical survey of your land before any drilling starts, so you know depth, yield and rock composition ahead of time — not after the rig has already arrived.</div></div>
+      <div class="svc-row"><div class="svc-num">02</div><div><svg class="svc-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M12 3v6M9 6l3 3 3-3M7 11h10l-1.5 9h-7L7 11Z"/></svg><div class="svc-name">Borehole drilling</div></div><div class="svc-desc">Rig-operated drilling sized to the survey results, run by a crew that adjusts to what the ground actually gives them rather than a fixed depth quote.</div></div>
+      <div class="svc-row"><div class="svc-num">03</div><div><svg class="svc-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M4 12h16M4 12a4 4 0 0 1 4-4M20 12a4 4 0 0 0-4-4M4 12a4 4 0 0 0 4 4M20 12a4 4 0 0 1-4 4"/></svg><div class="svc-name">Borehole installation</div></div><div class="svc-desc">Casing, pump and overhead tank installation, wired and pressure-tested before we consider the job handed over.</div></div>
+      <div class="svc-row"><div class="svc-num">04</div><div><svg class="svc-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M14.7 6.3a4 4 0 0 1-5.4 5.4L4 17l3 3 5.3-5.3a4 4 0 0 1 5.4-5.4L21 6l-3-3-3.3 3.3Z"/></svg><div class="svc-name">Borehole maintenance</div></div><div class="svc-desc">Scheduled servicing and callouts for boreholes losing pressure, running dry in the dry season, or overdue for a pump check.</div></div>
+    </div>
+  </div>
+</section>
+
+<div class="wave-divider" style="background:var(--stone);">
+  <svg class="l1" viewBox="0 0 2400 90" preserveAspectRatio="none"><path d="M0 40 Q 200 0 400 40 T 800 40 T 1200 40 T 1600 40 T 2000 40 T 2400 40 V90 H0 Z" fill="#16212F"/></svg>
+</div>
+
+<!-- PROCESS -->
+<section class="section process" id="process">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="kicker">How a borehole gets made</div>
+      <div><h2>Every job goes the same five stages.</h2><p class="desc">The shaft below is the same order your borehole will actually go through, from first visit to the day it's producing water on its own.</p></div>
+    </div>
+    <div class="shaft">
+      <div class="step"><div class="depth">Stage 1</div><h3>Site visit &amp; survey</h3><p>We walk the land, run the geophysical survey and tell you honestly what depth and yield to expect before any contract is signed.</p></div>
+      <div class="step"><div class="depth">Stage 2</div><h3>Rig mobilisation</h3><p>Drilling rig and crew arrive on an agreed date, with access and setup handled so your site isn't disrupted longer than it needs to be.</p></div>
+      <div class="step"><div class="depth">Stage 3</div><h3>Drilling</h3><p>We drill to the depth the ground requires — logging soil and rock changes as we go, the same way the survey predicted.</p></div>
+      <div class="step"><div class="depth">Stage 4</div><h3>Casing, pump &amp; installation</h3><p>Casing goes in to protect the well, the pump is fitted and sized to your usage, and the system is pressure-tested on site.</p></div>
+      <div class="step"><div class="depth">Stage 5</div><h3>Handover &amp; maintenance plan</h3><p>You get a working borehole and a maintenance schedule — not just a hole with a pump dropped in it and a goodbye.</p></div>
+    </div>
+  </div>
+</section>
+
+<div class="wave-divider" style="background:var(--bedrock);">
+  <svg class="l1" viewBox="0 0 2400 90" preserveAspectRatio="none"><path d="M0 40 Q 200 0 400 40 T 800 40 T 1200 40 T 1600 40 T 2000 40 T 2400 40 V90 H0 Z" fill="#ECEEE8"/></svg>
+</div>
+
+<!-- WHY US -->
+<section class="section why">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="kicker">Why Solowyze</div>
+      <div><h2>Built to be the crew you call twice.</h2><p class="desc">Most drilling outfits disappear after the invoice clears. These are the three things clients tell us kept them coming back.</p></div>
+    </div>
+    <div class="why-grid">
+      <div class="why-card"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M12 2 3 6v6c0 5 4 8.5 9 10 5-1.5 9-5 9-10V6l-9-4Z"/></svg><h3>Quality work</h3><p>Materials and workmanship built to hold up years past the handover, not just past the warranty window.</p></div>
+      <div class="why-card"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .34 1.87l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.7 1.7 0 0 0-1.87-.34 1.7 1.7 0 0 0-1.04 1.56V21a2 2 0 0 1-4 0v-.09A1.7 1.7 0 0 0 9 19.35a1.7 1.7 0 0 0-1.87.34l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06A1.7 1.7 0 0 0 4.65 15a1.7 1.7 0 0 0-1.56-1.04H3a2 2 0 0 1 0-4h.09A1.7 1.7 0 0 0 4.65 9a1.7 1.7 0 0 0-.34-1.87l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06A1.7 1.7 0 0 0 9 4.65a1.7 1.7 0 0 0 1.04-1.56V3a2 2 0 0 1 4 0v.09a1.7 1.7 0 0 0 1.04 1.56 1.7 1.7 0 0 0 1.87-.34l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06A1.7 1.7 0 0 0 19.35 9a1.7 1.7 0 0 0 1.56 1.04H21a2 2 0 0 1 0 4h-.09a1.7 1.7 0 0 0-1.56 1.04Z"/></svg><h3>Reliable service</h3><p>Dates that hold, callouts that get answered, and a plan for what happens after we leave your site.</p></div>
+      <div class="why-card"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M17 21v-2a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v2M10 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8ZM23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg><h3>Experienced team</h3><p>Skilled drilling and survey professionals who've seen enough ground types across Abuja to know what to expect before the rig even starts turning.</p></div>
+    </div>
+  </div>
+</section>
+
+<div class="wave-divider" style="background:var(--stone);">
+  <svg class="l1" viewBox="0 0 2400 90" preserveAspectRatio="none"><path d="M0 40 Q 200 0 400 40 T 800 40 T 1200 40 T 1600 40 T 2000 40 T 2400 40 V90 H0 Z" fill="#0B1220"/></svg>
+</div>
+
+<!-- CONTACT / CLOSE -->
+<section class="section close" id="contact">
+  <div class="wrap close-grid">
+    <div>
+      <div class="kicker" style="color:var(--aquifer)">Get started</div>
+      <h2>Tell us where the land is. We'll tell you what's under it.</h2>
+      <p class="lede">Call, or send your site location, and we'll schedule a survey before any drilling commitment is made.</p>
+      <div class="close-ctas">
+        <a href="tel:08093232222" class="btn btn-primary"><span class="liquid"><svg viewBox="0 0 200 14" preserveAspectRatio="none"><path d="M0 8 Q 25 0 50 8 T 100 8 T 150 8 T 200 8 V14 H0 Z" fill="#F0B863"/></svg></span><span>Call 0809 323 2222</span></a>
+        <a href="tel:07052894905" class="btn btn-ghost"><span class="liquid"><svg viewBox="0 0 200 14" preserveAspectRatio="none"><path d="M0 8 Q 25 0 50 8 T 100 8 T 150 8 T 200 8 V14 H0 Z" fill="#8FC7CE"/></svg></span><span>Call 0705 289 4905</span></a>
+      </div>
+    </div>
+    <div>
+      <div class="info-block">
+        <div class="info-row"><div class="k">Company</div><div class="v">Solowyze Drill Tech</div></div>
+        <div class="info-row"><div class="k">RC number</div><div class="v">7943837</div></div>
+        <div class="info-row"><div class="k">Office address</div><div class="v">Beside Upcandid Hotel, Zone 8,<br>Lugbe Airport Road, Abuja</div></div>
+        <div class="info-row"><div class="k">Phone</div><div class="v">0809 323 2222<br>0705 289 4905</div></div>
+      </div>
+    </div>
+  </div>
+  <div class="wrap"><footer><div class="foot-row"><div>Solowyze Drill Tech — drilling deeper, delivering solutions.</div><div>Homepage concept, prepared for pitch</div></div></footer></div>
+</section>
+
+<script>
+  // ---- water canvas: ambient caustics + mouse ripples + aquifer burst ----
+  (function(){
+    const canvas = document.getElementById('water-canvas');
+    const ctx = canvas.getContext('2d');
+    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    let w,h;
+    function resize(){
+      const hero = document.getElementById('hero');
+      w = canvas.width = hero.clientWidth;
+      h = canvas.height = hero.clientHeight;
+    }
+    resize();
+    window.addEventListener('resize', resize);
+
+    let ripples = [];
+    function addRipple(x,y,strength){
+      ripples.push({x,y,r:0,alpha:0.45*strength,max:130+Math.random()*90});
+    }
+    let lastMove = 0;
+    canvas.addEventListener('mousemove', e=>{
+      const now = performance.now();
+      if(now-lastMove<70) return; lastMove=now;
+      const rect = canvas.getBoundingClientRect();
+      addRipple(e.clientX-rect.left, e.clientY-rect.top, 0.55);
+    });
+    canvas.addEventListener('click', e=>{
+      const rect = canvas.getBoundingClientRect();
+      addRipple(e.clientX-rect.left, e.clientY-rect.top, 1.5);
+    });
+    canvas.addEventListener('touchmove', e=>{
+      const rect = canvas.getBoundingClientRect();
+      const t = e.touches[0];
+      addRipple(t.clientX-rect.left, t.clientY-rect.top, 0.5);
+    },{passive:true});
+
+    let t = 0;
+    function draw(){
+      t += 0.006;
+      ctx.clearRect(0,0,w,h);
+      const blobs = [
+        {cx:w*0.22+Math.sin(t*0.8)*40, cy:h*0.35+Math.cos(t*0.6)*30, r:w*0.30, c:'rgba(143,199,206,0.14)'},
+        {cx:w*0.75+Math.cos(t*0.5)*50, cy:h*0.7+Math.sin(t*0.7)*30,  r:w*0.34, c:'rgba(216,155,60,0.08)'},
+        {cx:w*0.5+Math.sin(t*0.35)*60, cy:h*0.2+Math.cos(t*0.5)*25,  r:w*0.24, c:'rgba(35,96,107,0.18)'}
+      ];
+      blobs.forEach(b=>{
+        const g = ctx.createRadialGradient(b.cx,b.cy,0,b.cx,b.cy,b.r);
+        g.addColorStop(0,b.c); g.addColorStop(1,'rgba(0,0,0,0)');
+        ctx.fillStyle = g; ctx.fillRect(0,0,w,h);
+      });
+      ripples.forEach(rp=>{
+        rp.r += 2.2; rp.alpha *= 0.965;
+        ctx.beginPath(); ctx.arc(rp.x, rp.y, rp.r, 0, Math.PI*2);
+        ctx.strokeStyle = `rgba(180,222,226,${rp.alpha})`;
+        ctx.lineWidth = 1.3; ctx.stroke();
+      });
+      ripples = ripples.filter(rp=>rp.alpha>0.012 && rp.r<rp.max);
+      if(!reduced) requestAnimationFrame(draw); else if(t<0.02) requestAnimationFrame(draw);
+    }
+    draw();
+
+    if(!reduced){
+      window.addEventListener('load', ()=>{
+        const core = document.getElementById('core-col');
+        const heroRect = document.getElementById('hero').getBoundingClientRect();
+        const rect = core.getBoundingClientRect();
+        const cx = rect.left - heroRect.left + rect.width/2;
+        const cy = rect.top - heroRect.top + rect.height*0.9;
+        setTimeout(()=>{
+          for(let i=0;i<6;i++){
+            setTimeout(()=> addRipple(cx+(Math.random()-0.5)*70, cy+(Math.random()-0.5)*30, 1.7), i*110);
+          }
+        }, 2750);
+      });
+    }
+  })();
+
+  // ---- count-up stats ----
+  (function(){
+    const nums = document.querySelectorAll('.count');
+    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const obs = new IntersectionObserver((entries)=>{
+      entries.forEach(entry=>{
+        if(entry.isIntersecting){
+          const el = entry.target;
+          const target = parseInt(el.dataset.target,10);
+          if(reduced){ el.textContent = target; obs.unobserve(el); return; }
+          let cur = 0;
+          const dur = 900, start = performance.now();
+          function step(now){
+            const p = Math.min(1,(now-start)/dur);
+            cur = Math.round(target * (1 - Math.pow(1-p,3)));
+            el.textContent = cur;
+            if(p<1) requestAnimationFrame(step);
+          }
+          requestAnimationFrame(step);
+          obs.unobserve(el);
+        }
+      });
+    },{threshold:0.5});
+    nums.forEach(n=>obs.observe(n));
+  })();
+</script>
+</body>
+</html>
